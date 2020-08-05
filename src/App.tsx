@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Header, HomeIcon } from "./components";
+import { Landing } from "./Landing";
 
 const StyledApp = styled.div`
   color: ${(props) => props.theme.colors.colorSecondary};
@@ -24,6 +25,7 @@ function App() {
           <img></img>
         </HomeIcon>
       </Header>
+      <Landing></Landing>
     </StyledApp>
   );
 }
