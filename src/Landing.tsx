@@ -26,7 +26,7 @@ export const Landing: React.SFC = () => {
       <LandingLayout>
         <LandingHeadline
           primaryHeadline="dinged board?"
-          secondaryHeadline="we'll help you find someone to repair it"
+          secondaryHeadline="find the best repair near you"
         />
         <MainButton>Search</MainButton>
       </LandingLayout>

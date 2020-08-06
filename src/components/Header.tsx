@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { styled } from "../utils/theme";
 
 const StyledHeader = styled.header`
   position: absolute;

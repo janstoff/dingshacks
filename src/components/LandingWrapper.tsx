@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { styled } from "../utils/theme";
 
 interface LandingWrapperProps {
   readonly imageUrl: string;

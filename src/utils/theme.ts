@@ -1,6 +1,9 @@
+import baseStyled, { ThemedStyledInterface } from "styled-components";
+
 interface AppStyleTheme {
   readonly colors: {
     readonly colorPrimary: string;
+    readonly colorPrimaryLight: string;
     readonly colorSecondary: string;
     readonly colorTertiary: string;
     readonly colorText: string;
@@ -12,9 +15,10 @@ interface AppStyleTheme {
   };
 }
 
-const theme: AppStyleTheme = {
+export const theme: AppStyleTheme = {
   colors: {
     colorPrimary: "#ff7260",
+    colorPrimaryLight: "#ff9d90",
     colorSecondary: "#40484f",
     colorTertiary: "#b6ecfd",
     colorText: "#40494f",
@@ -26,4 +30,4 @@ const theme: AppStyleTheme = {
   },
 };
 
-export default theme;
+export const styled = baseStyled as ThemedStyledInterface<AppStyleTheme>;

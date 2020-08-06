@@ -21,7 +21,7 @@ const StyledMainButton = styled.button`
   display: block;
   right: 0.1rem;
   text-transform: uppercase;
-  background-color: ${(props) => props.theme.colors.colorPrimary};
+  background-color: ${(props) => props.theme.colors.colorPrimaryLight};
   color: ${(props) => props.theme.colors.colorSecondary};
   text-decoration: none; /* no underline */
   font-weight: 600;

@@ -1,5 +1,6 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import { styled } from "../utils/theme";
+import { keyframes } from "styled-components";
 
 interface DownButtonProps {
   readonly anchor: string;
@@ -74,7 +75,7 @@ const StyledChevron = styled.div`
     top: 0;
     height: 100%;
     width: 51%;
-    background: $color-primary-light;
+    background: ${(props) => props.theme.colors.colorPrimaryLight};
   }
 
   ::before {

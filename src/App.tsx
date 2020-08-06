@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { styled } from "./utils/theme";
 import { Header, HomeIcon } from "./components";
 import { Landing } from "./Landing";
 
@@ -21,9 +21,7 @@ function App() {
   return (
     <StyledApp>
       <Header>
-        <HomeIcon>
-          <img></img>
-        </HomeIcon>
+        <HomeIcon />
       </Header>
       <Landing></Landing>
     </StyledApp>
