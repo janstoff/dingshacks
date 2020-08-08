@@ -2,6 +2,9 @@ import React from "react";
 import { styled } from "../utils/theme";
 
 const StyledLandingLayout = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;

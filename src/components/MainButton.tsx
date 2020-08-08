@@ -1,6 +1,10 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+export interface MainButtonProps {
+  readonly icon?: JSX.Element;
+}
+
 const fadeInAnimation = keyframes`
    0% {
     opacity: 0;
@@ -11,15 +15,12 @@ const fadeInAnimation = keyframes`
 `;
 
 const StyledMainButton = styled.button`
-  background: none;
-  color: inherit;
   border: none;
+  width: 20rem;
   padding: 1.5rem 4rem;
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  display: block;
-  right: 0.1rem;
   text-transform: uppercase;
   background-color: ${(props) => props.theme.colors.colorPrimaryLight};
   color: ${(props) => props.theme.colors.colorSecondary};
@@ -42,7 +43,6 @@ const StyledMainButton = styled.button`
 
   &::after {
     content: ""; /* otherwise the pseudo element would not be active */
-    display: inline-block; /* like the parent */
     border-radius: 10rem;
     background-color: $color-primary-light;
     position: absolute;
@@ -59,6 +59,11 @@ const StyledMainButton = styled.button`
   }
 `;
 
-export const MainButton: React.SFC = ({ children }) => (
-  <StyledMainButton>{children}</StyledMainButton>
+const StyledIconWrapper = styled.span``;
+
+export const MainButton: React.SFC<MainButtonProps> = ({ icon, children }) => (
+  <StyledMainButton>
+    {icon && <StyledIconWrapper>{icon}</StyledIconWrapper>}
+    {children}
+  </StyledMainButton>
 );

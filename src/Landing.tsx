@@ -22,13 +22,13 @@ export const Landing: React.SFC = () => {
   const hideDownButton = useHideDownButton();
 
   return (
-    <LandingWrapper imageUrl="https://centerforsurfresearch.org/wp-content/uploads/2020/04/How-To-Repair-A-Surfboard_Review.jpg">
+    <LandingWrapper imageUrl={require("./assets/landing.png")}>
       <LandingLayout>
         <LandingHeadline
           primaryHeadline="dinged board?"
           secondaryHeadline="find the best repair near you"
         />
-        <MainButton>Search</MainButton>
+        <MainButton>Locate</MainButton>
       </LandingLayout>
       {downButtonInitialized && !hideDownButton && (
         <DownButton anchor="anchor" />

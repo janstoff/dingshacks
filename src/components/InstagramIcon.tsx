@@ -22,7 +22,7 @@ const StyledInstagramLogo = styled.svg`
   }
 `;
 
-export const InstagramIcon: React.SFC = ({ children }) => (
+export const InstagramIcon: React.SFC = () => (
   <StyledInstagramIconAnchor href="https://www.instagram.com/paddelbude/">
     <StyledInstagramLogo />
   </StyledInstagramIconAnchor>

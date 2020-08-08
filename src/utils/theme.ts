@@ -17,10 +17,10 @@ interface AppStyleTheme {
 
 export const theme: AppStyleTheme = {
   colors: {
-    colorPrimary: "#ff7260",
-    colorPrimaryLight: "#ff9d90",
+    colorPrimary: "#ff4d4d",
+    colorPrimaryLight: "#ff6666",
     colorSecondary: "#40484f",
-    colorTertiary: "#b6ecfd",
+    colorTertiary: "#66d9ff",
     colorText: "#40494f",
     colorTextWhite: "#ffffff",
     gradientPrimary: "#f5f5f5",
