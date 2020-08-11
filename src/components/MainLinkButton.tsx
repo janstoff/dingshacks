@@ -1,7 +1,11 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-export interface MainButtonProps {
+export interface MainLinkButtonProps {
+  readonly onClick: (
+    event?: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+  readonly href: string;
   readonly icon?: JSX.Element;
 }
 
@@ -14,7 +18,7 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-const StyledMainButton = styled.button`
+const StyledMainLinkButton = styled.a`
   border: none;
   width: 20rem;
   padding: 1.5rem 4rem;
@@ -61,9 +65,21 @@ const StyledMainButton = styled.button`
 
 const StyledIconWrapper = styled.span``;
 
-export const MainButton: React.SFC<MainButtonProps> = ({ icon, children }) => (
-  <StyledMainButton>
-    {icon && <StyledIconWrapper>{icon}</StyledIconWrapper>}
-    {children}
-  </StyledMainButton>
-);
+export const MainLinkButton: React.SFC<MainLinkButtonProps> = ({
+  icon,
+  onClick,
+  href,
+  children,
+}) => {
+  const handleClick = () => {
+    onClick();
+    console.log("Clicked main link button!");
+  };
+
+  return (
+    <StyledMainLinkButton href={href} onClick={() => handleClick()}>
+      {icon && <StyledIconWrapper>{icon}</StyledIconWrapper>}
+      {children}
+    </StyledMainLinkButton>
+  );
+};

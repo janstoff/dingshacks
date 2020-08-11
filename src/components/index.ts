@@ -4,4 +4,10 @@ export { HomeIcon } from "./HomeIcon";
 export { LandingHeadline } from "./LandingHeadline";
 export { LandingLayout } from "./LandingLayout";
 export { LandingWrapper } from "./LandingWrapper";
-export { MainButton } from "./MainButton";
+export { MainLinkButton } from "./MainLinkButton";
+export {
+  Section,
+  SectionHeadline,
+  SectionSubHeadline,
+  SectionText,
+} from "./Section";

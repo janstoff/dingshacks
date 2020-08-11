@@ -23,6 +23,5 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true
-  },
-  "include": ["src"]
+  }
 }

@@ -1,0 +1,16 @@
+{
+  "endorsements": [
+    {
+      "ref": "1",
+      "id": "1",
+      "user": "dingshacks",
+      "skill": ["carbon", "epoxy", "high-density foam", "design"],
+      "service": [
+        "on time",
+        "open communication",
+        "fair pricing",
+        "extra effort"
+      ]
+    }
+  ]
+}
