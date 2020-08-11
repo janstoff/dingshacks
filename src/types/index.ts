@@ -5,11 +5,11 @@ export interface Coordinates {
 
 export interface Shack {
   readonly id: string;
-  readonly name: string;
+  readonly name?: string;
   readonly person?: string;
-  readonly street: string;
-  readonly postcode: string;
-  readonly city: string;
+  readonly street?: string;
+  readonly postcode?: string;
+  readonly city?: string;
   readonly coordinates: Coordinates;
   readonly country?: string;
   readonly phone?: string;
@@ -32,31 +32,30 @@ export interface Review {
 export interface Endorsement {
   readonly id: string;
   readonly user: string;
-  readonly skills: string[];
-  readonly service: string[];
+  readonly skill: string;
 }
 
 export interface Service {
   readonly title: string;
   readonly price: number;
-  readonly days: number;
+  readonly days?: number;
 }
 
 export interface Services {
-  readonly shaper: boolean | undefined;
-  readonly constructions: {
-    readonly pu: boolean | undefined;
-    readonly epoxy: boolean | undefined;
-    readonly soft: boolean | undefined;
-    readonly carbon: boolean | undefined;
+  readonly shaper?: boolean;
+  readonly constructions?: {
+    readonly pu?: boolean;
+    readonly epoxy?: boolean;
+    readonly soft?: boolean;
+    readonly carbon?: boolean;
   };
   readonly currency: string;
   readonly offering: Service[];
 }
 
 export interface FullShack extends Shack {
-  readonly reviews: Review[];
-  readonly endorsements: Endorsement[];
+  readonly reviews?: Review[];
+  readonly endorsements?: Endorsement[];
 }
 
 export interface FullShackWithDistance extends ShackWithDistance {
@@ -69,9 +68,9 @@ export interface ShacksResponseData {
 }
 
 export interface ReviewsResponseData {
-  readonly reviews: Review[];
+  readonly reviews?: Review[];
 }
 
 export interface EndorsementsResponseData {
-  readonly reviews: Endorsement[];
+  readonly reviews?: Endorsement[];
 }

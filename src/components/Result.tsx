@@ -10,8 +10,7 @@ const StyledResult = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0.5rem;
+  padding: 1rem;
   border: 1px solid ${(props) => props.theme.colors.colorSecondary};
 `;
 
@@ -39,14 +38,14 @@ export const Result: React.SFC<ResultProps> = ({ result }) => (
   <StyledResult>
     <StyledRow>
       <StyledTitle>{result.name}</StyledTitle>
-      <StyledDistance>{result.distance}</StyledDistance>
+      <StyledDistance>{`${result.distance} km`}</StyledDistance>
     </StyledRow>
     <StyledRow>
       <StyledQuickInfoGrid>
         <p>{result.person}</p>
-        <p>{`${result.services?.constructions.pu && "PU"}, ${
-          result.services?.constructions.epoxy && "Epoxy"
-        }, ${result.services?.constructions.soft && "Softboards"}`}</p>
+        <p>{`${result.services?.constructions?.pu && "PU"}, ${
+          result.services?.constructions?.epoxy && "Epoxy"
+        }, ${result.services?.constructions?.soft && "Softboards"}`}</p>
         <p>{result.reviews ?? "no reviews yet"}</p>
         <p>{result.verified && "verified"}</p>
       </StyledQuickInfoGrid>

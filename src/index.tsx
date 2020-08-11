@@ -1,15 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider } from "styled-components";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { theme } from "./utils/theme";
+import { LSG } from "./components/LSG";
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <App />
+          </Route>
+          <Route exact path="/lsg">
+            <LSG />
+          </Route>
+        </Switch>
+      </Router>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
