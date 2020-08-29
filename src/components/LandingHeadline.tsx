@@ -73,11 +73,11 @@ const StyledPrimaryHeadline = styled.span`
     letter-spacing: 2.8rem;
   }
   @media only screen and (max-width: 760px) {
-    font-size: 4.5rem;
+    font-size: 4rem;
     letter-spacing: 2rem;
   }
   @media only screen and (max-width: 430px) {
-    font-size: 5rem;
+    font-size: 3.8rem;
     letter-spacing: 1.8rem;
   }
 `;
@@ -99,11 +99,11 @@ const StyledSecondaryHeadline = styled.span`
     letter-spacing: 1.3rem;
   }
   @media only screen and (max-width: 760px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 1.2rem;
   }
   @media only screen and (max-width: 430px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: 1rem;
   }
 

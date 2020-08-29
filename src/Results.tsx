@@ -1,9 +1,11 @@
 import React from "react";
 import { Section, SectionHeadline, SectionSubHeadline } from "./components";
-import { ShackWithDistance } from "./types";
-import { Result } from "./components/Result";
+import { BaseShackWithDistance } from "./types";
+import { Result, ResultWrapper } from "./components";
+import { createReviewsLabel } from "./utils/create-reviews-label";
+import { getConstructions } from "./utils/get-constructions";
 
-export type Results = ShackWithDistance[] | "loading" | undefined;
+export type Results = BaseShackWithDistance[] | "loading" | undefined;
 
 export interface ResultsProps {
   readonly renderSection: boolean;
@@ -19,7 +21,20 @@ const renderResults = (results: Results) => {
     return <div>Loading...</div>;
   }
 
-  return results.map((result) => <Result key={result.id} result={result} />);
+  return results.map((result) => {
+    const reviewsLabel = createReviewsLabel(result);
+    const constructions = getConstructions(result);
+
+    return (
+      <ResultWrapper key={result.id}>
+        <Result
+          result={result}
+          reviewsLabel={reviewsLabel}
+          constructions={constructions}
+        />
+      </ResultWrapper>
+    );
+  });
 };
 
 export const Results: React.SFC<ResultsProps> = ({ renderSection, results }) =>

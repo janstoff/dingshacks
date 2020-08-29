@@ -7,6 +7,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { theme } from "./utils/theme";
 import { LSG } from "./components/LSG";
+import { ShackPage } from "./ShackPage";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,9 @@ ReactDOM.render(
           </Route>
           <Route exact path="/lsg">
             <LSG />
+          </Route>
+          <Route path="/:id/:name">
+            <ShackPage />
           </Route>
         </Switch>
       </Router>

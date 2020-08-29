@@ -27,6 +27,6 @@ export function getDistanceBetweenCoordinates(
     if (inKilometers) {
       distance = distance * 1.609344;
     }
-    return distance;
+    return Math.round(distance);
   }
 }

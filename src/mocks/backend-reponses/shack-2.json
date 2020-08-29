@@ -1,0 +1,56 @@
+{
+  "shack": {
+    "id": "2",
+    "name": "Semente Surfboards Ericeira",
+    "street": "Rua da Colonia",
+    "postcode": "2655",
+    "city": "Carvoeira",
+    "country": "Portugal",
+    "phone": "+35913207988",
+    "email": "alexrepairsyoursurfboard@gmail.com",
+    "web": "https://www.facebook.com/dingrepairs/",
+    "coordinates": {
+      "latitude": 38.5582965,
+      "longitude": -9.6581335
+    },
+    "constructions": {
+      "pu": true,
+      "epoxy": true,
+      "soft": true
+    },
+    "shaper": false,
+    "currency": "EUR",
+    "services": {
+      "offering": [
+        { "title": "pick up", "price": 0 },
+        {
+          "title": "fix ding or hole",
+          "price": 30,
+          "days": 1
+        },
+        {
+          "title": " fix nose",
+          "price": 65,
+          "days": 1
+        },
+        {
+          "title": " fix futures fin box",
+          "price": 75,
+          "days": 2
+        },
+        {
+          "title": "fix tail",
+          "price": 90,
+          "days": 2
+        },
+        {
+          "title": "fix broken in half board",
+          "price": 150,
+          "days": 2
+        }
+      ],
+      "verified": false,
+      "reviews": []
+    }
+  }
+}

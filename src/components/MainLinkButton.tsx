@@ -27,7 +27,7 @@ const StyledMainLinkButton = styled.a`
   outline: inherit;
   text-transform: uppercase;
   background-color: ${(props) => props.theme.colors.colorPrimaryLight};
-  color: ${(props) => props.theme.colors.colorSecondary};
+  color: ${(props) => props.theme.colors.colorTertiary};
   text-decoration: none; /* no underline */
   font-weight: 600;
   border-radius: 10rem;

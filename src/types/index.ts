@@ -1,11 +1,30 @@
+// Front End Data Structures
+
 export interface Coordinates {
   readonly latitude: number;
   readonly longitude: number;
 }
 
-export interface Shack {
+export interface Review {
+  readonly user: string;
+  readonly comment: string;
+  readonly outOfTen: number;
+}
+
+export interface BaseShack {
   readonly id: string;
-  readonly name?: string;
+  readonly name: string;
+  readonly coordinates: Coordinates;
+  readonly constructions?: Constructions;
+  readonly verified?: boolean;
+  readonly numberOfReviews?: number;
+}
+
+export interface BaseShackWithDistance extends BaseShack {
+  readonly distance: number;
+}
+
+export interface Shack extends BaseShack {
   readonly person?: string;
   readonly street?: string;
   readonly postcode?: string;
@@ -15,24 +34,16 @@ export interface Shack {
   readonly phone?: string;
   readonly email?: string;
   readonly web?: string;
-  readonly services?: Services;
-  readonly verified?: boolean;
+  readonly shaper?: boolean;
+  readonly currency?: string;
+  readonly services?: Service[];
 }
 
-export interface ShackWithDistance extends Shack {
-  readonly distance: number;
-}
-
-export interface Review {
-  readonly id: string;
-  readonly user: string;
-  readonly comment: string;
-}
-
-export interface Endorsement {
-  readonly id: string;
-  readonly user: string;
-  readonly skill: string;
+export interface Constructions {
+  readonly pu?: boolean;
+  readonly epoxy?: boolean;
+  readonly soft?: boolean;
+  readonly carbon?: boolean;
 }
 
 export interface Service {
@@ -41,36 +52,30 @@ export interface Service {
   readonly days?: number;
 }
 
-export interface Services {
-  readonly shaper?: boolean;
-  readonly constructions?: {
-    readonly pu?: boolean;
-    readonly epoxy?: boolean;
-    readonly soft?: boolean;
-    readonly carbon?: boolean;
-  };
-  readonly currency: string;
-  readonly offering: Service[];
-}
-
 export interface FullShack extends Shack {
   readonly reviews?: Review[];
-  readonly endorsements?: Endorsement[];
 }
 
-export interface FullShackWithDistance extends ShackWithDistance {
-  readonly reviews?: Review[];
-  readonly endorsements?: Endorsement[];
+// Backend Responses Data Structures
+
+export interface SearchResultsResponse {
+  readonly shacks: BaseShack[];
 }
 
-export interface ShacksResponseData {
+export interface ShackResponse {
+  readonly shack: FullShack;
+}
+
+// Backend Data Structures
+
+export interface ReviewTableEntry extends Review {
+  readonly id: string;
+}
+
+export interface ShacksTableData {
   readonly shacks: Shack[];
 }
 
-export interface ReviewsResponseData {
-  readonly reviews?: Review[];
-}
-
-export interface EndorsementsResponseData {
-  readonly reviews?: Endorsement[];
+export interface ReviewsTableData {
+  readonly reviews?: ReviewTableEntry[];
 }

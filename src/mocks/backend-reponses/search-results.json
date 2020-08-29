@@ -1,0 +1,49 @@
+{
+  "shacks": [
+    {
+      "id": "1",
+      "name": "Surfboard Repairs Ericeira",
+      "coordinates": {
+        "latitude": 38.3582965,
+        "longitude": -9.4581335
+      },
+      "constructions": {
+        "pu": true,
+        "epoxy": true,
+        "soft": true
+      },
+      "verified": true,
+      "numberOfReviews": 1
+    },
+    {
+      "id": "2",
+      "name": "Semente Surfboards Ericeira",
+      "coordinates": {
+        "latitude": 38.5582965,
+        "longitude": -9.6581335
+      },
+      "constructions": {
+        "pu": true,
+        "epoxy": true,
+        "soft": true
+      },
+      "verified": false,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "3",
+      "name": "MICA Surfboards Ericeira",
+      "coordinates": {
+        "latitude": 38.1582965,
+        "longitude": -9.1581335
+      },
+      "constructions": {
+        "pu": true,
+        "epoxy": true,
+        "soft": true
+      },
+      "verified": false,
+      "numberOfReviews": 0
+    }
+  ]
+}

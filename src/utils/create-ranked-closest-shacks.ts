@@ -1,21 +1,16 @@
-import {
-  Shack,
-  ShacksResponseData,
-  Coordinates,
-  ShackWithDistance,
-} from "../types";
+import { Shack, Coordinates, BaseShackWithDistance, BaseShack } from "../types";
 import { getDistanceBetweenCoordinates } from "./get-distance-between-coordinates";
 
 export function createRankedClosestShacks(
-  rawShacksData: ShacksResponseData,
+  shacksSearchResults: BaseShack[],
   userLocation: Coordinates | undefined,
   maxNumberOfResults: number
-): ShackWithDistance[] | undefined {
+): BaseShackWithDistance[] | undefined {
   if (!userLocation) {
     return undefined;
   }
 
-  return rawShacksData.shacks
+  return shacksSearchResults
     .map((shack: Shack) => {
       return {
         ...shack,
