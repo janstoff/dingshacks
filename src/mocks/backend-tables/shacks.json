@@ -20,8 +20,10 @@
         "currency": "EUR",
         "constructions": {
           "pu": true,
-          "epoxy": true,
-          "soft": true
+          "pe": true,
+          "eps": true,
+          "soft": true,
+          "carbon": true
         },
         "offering": [
           { "title": "pick up", "price": 0 },
@@ -73,8 +75,7 @@
         "currency": "EUR",
         "constructions": {
           "pu": true,
-          "epoxy": true,
-          "soft": true
+          "eps": true
         },
         "offering": [
           { "title": "pick up", "price": 0 },
@@ -126,8 +127,9 @@
         "currency": "EUR",
         "constructions": {
           "pu": true,
-          "epoxy": true,
-          "soft": true
+          "pe": true,
+          "soft": true,
+          "carbon": true
         },
         "offering": [
           { "title": "pick up", "price": 0 },

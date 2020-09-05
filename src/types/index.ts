@@ -41,7 +41,8 @@ export interface Shack extends BaseShack {
 
 export interface Constructions {
   readonly pu?: boolean;
-  readonly epoxy?: boolean;
+  readonly pe?: boolean;
+  readonly eps?: boolean;
   readonly soft?: boolean;
   readonly carbon?: boolean;
 }

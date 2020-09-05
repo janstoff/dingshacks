@@ -16,7 +16,11 @@ interface AppStyleTheme {
     readonly gradientSecondary: string;
     readonly colorFormInputInvalid: string;
     readonly colorFormInputValid: string;
-    readonly colorMintGreen: string;
+    readonly colorConstructionPu: string;
+    readonly colorConstructionPe: string;
+    readonly colorConstructionEps: string;
+    readonly colorConstructionSoft: string;
+    readonly colorConstructionCarbon: string;
   };
 }
 
@@ -36,7 +40,11 @@ export const theme: AppStyleTheme = {
     gradientSecondary: "black",
     colorFormInputInvalid: "#911414",
     colorFormInputValid: "#0ab30a",
-    colorMintGreen: "#96ebc3",
+    colorConstructionPu: "#ff6666",
+    colorConstructionPe: "#66d9ff",
+    colorConstructionEps: "#e6e6e6",
+    colorConstructionSoft: "#96ebc3",
+    colorConstructionCarbon: "#40484f",
   },
 };
 

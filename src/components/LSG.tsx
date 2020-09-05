@@ -29,7 +29,7 @@ const results: BaseShackWithDistance[] = [
     },
     constructions: {
       pu: true,
-      epoxy: true,
+      eps: true,
       soft: true,
       carbon: true,
     },
@@ -45,7 +45,7 @@ const results: BaseShackWithDistance[] = [
     },
     constructions: {
       pu: true,
-      epoxy: false,
+      eps: false,
       soft: true,
     },
     verified: false,
@@ -70,7 +70,7 @@ const shackData: FullShack = {
   },
   constructions: {
     pu: true,
-    epoxy: true,
+    eps: true,
     soft: true,
   },
   shaper: false,

@@ -9,8 +9,10 @@
       },
       "constructions": {
         "pu": true,
-        "epoxy": true,
-        "soft": true
+        "pe": true,
+        "eps": true,
+        "soft": true,
+        "carbon": true
       },
       "verified": true,
       "numberOfReviews": 1
@@ -24,8 +26,7 @@
       },
       "constructions": {
         "pu": true,
-        "epoxy": true,
-        "soft": true
+        "pe": true
       },
       "verified": false,
       "numberOfReviews": 0
@@ -39,8 +40,9 @@
       },
       "constructions": {
         "pu": true,
-        "epoxy": true,
-        "soft": true
+        "pe": true,
+        "eps": true,
+        "carbon": true
       },
       "verified": false,
       "numberOfReviews": 0

@@ -16,8 +16,10 @@
     },
     "constructions": {
       "pu": true,
-      "epoxy": true,
-      "soft": true
+      "pe": true,
+      "eps": true,
+      "soft": true,
+      "carbon": true
     },
     "shaper": false,
     "currency": "EUR",
