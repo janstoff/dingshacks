@@ -19,6 +19,7 @@
       "soft": true,
       "carbon": true
     },
+    "paymentMethods": ["cash", "creditcard", "debitcard", "paypal"],
     "shaper": false,
     "currency": "EUR",
     "services": {

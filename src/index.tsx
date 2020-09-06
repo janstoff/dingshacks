@@ -6,7 +6,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { theme } from "./utils/theme";
-import { LSG } from "./components/LSG";
+import { LSG } from "./lsg";
 import { ShackPage } from "./ShackPage";
 
 ReactDOM.render(

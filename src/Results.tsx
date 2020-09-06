@@ -3,7 +3,6 @@ import { Section, SectionHeadline, SectionSubHeadline } from "./components";
 import { BaseShackWithDistance } from "./types";
 import { Result, ResultWrapper } from "./components";
 import { createReviewsLabel } from "./utils/create-reviews-label";
-import { getConstructions } from "./utils/get-constructions";
 
 export type Results = BaseShackWithDistance[] | "loading" | undefined;
 
@@ -23,15 +22,10 @@ const renderResults = (results: Results) => {
 
   return results.map((result) => {
     const reviewsLabel = createReviewsLabel(result);
-    const constructions = getConstructions(result);
 
     return (
       <ResultWrapper key={result.id}>
-        <Result
-          result={result}
-          reviewsLabel={reviewsLabel}
-          constructions={constructions}
-        />
+        <Result result={result} reviewsLabel={reviewsLabel} />
       </ResultWrapper>
     );
   });

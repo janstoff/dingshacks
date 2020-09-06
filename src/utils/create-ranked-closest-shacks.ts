@@ -3,13 +3,9 @@ import { getDistanceBetweenCoordinates } from "./get-distance-between-coordinate
 
 export function createRankedClosestShacks(
   shacksSearchResults: BaseShack[],
-  userLocation: Coordinates | undefined,
+  userLocation: Coordinates,
   maxNumberOfResults: number
-): BaseShackWithDistance[] | undefined {
-  if (!userLocation) {
-    return undefined;
-  }
-
+): BaseShackWithDistance[] {
   return shacksSearchResults
     .map((shack: Shack) => {
       return {

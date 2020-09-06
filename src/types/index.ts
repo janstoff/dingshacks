@@ -15,7 +15,7 @@ export interface BaseShack {
   readonly id: string;
   readonly name: string;
   readonly coordinates: Coordinates;
-  readonly constructions?: Constructions;
+  readonly constructions?: Construction[];
   readonly verified?: boolean;
   readonly numberOfReviews?: number;
 }
@@ -36,20 +36,17 @@ export interface Shack extends BaseShack {
   readonly web?: string;
   readonly shaper?: boolean;
   readonly currency?: string;
+  readonly paymentMethods?: PaymentMethod[];
   readonly services?: Service[];
 }
 
-export interface Constructions {
-  readonly pu?: boolean;
-  readonly pe?: boolean;
-  readonly eps?: boolean;
-  readonly soft?: boolean;
-  readonly carbon?: boolean;
-}
+export type PaymentMethod = "cash" | "creditcard" | "debitcard" | "paypal";
+
+export type Construction = "pu" | "pe" | "eps" | "soft" | "carbon";
 
 export interface Service {
   readonly title: string;
-  readonly price: number;
+  readonly price?: number;
   readonly days?: number;
 }
 

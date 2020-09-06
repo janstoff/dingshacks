@@ -52,6 +52,11 @@ function App() {
     const {
       shacks,
     }: SearchResultsResponse = require("./mocks/backend-reponses/search-results.json");
+    if (!userLocation) {
+      setResults(undefined);
+      return;
+    }
+
     const newResults = createRankedClosestShacks(shacks, userLocation, 10);
 
     if (newResults) {

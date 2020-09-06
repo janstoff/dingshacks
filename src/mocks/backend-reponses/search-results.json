@@ -7,13 +7,8 @@
         "latitude": 38.3582965,
         "longitude": -9.4581335
       },
-      "constructions": {
-        "pu": true,
-        "pe": true,
-        "eps": true,
-        "soft": true,
-        "carbon": true
-      },
+      "constructions": ["pu", "pe", "eps", "soft", "carbon"],
+      "paymentMethods": ["cash"],
       "verified": true,
       "numberOfReviews": 1
     },
@@ -24,10 +19,8 @@
         "latitude": 38.5582965,
         "longitude": -9.6581335
       },
-      "constructions": {
-        "pu": true,
-        "pe": true
-      },
+      "constructions": ["pu", "pe"],
+      "paymentMethods": ["cash", "creditcard"],
       "verified": false,
       "numberOfReviews": 0
     },
@@ -38,12 +31,8 @@
         "latitude": 38.1582965,
         "longitude": -9.1581335
       },
-      "constructions": {
-        "pu": true,
-        "pe": true,
-        "eps": true,
-        "carbon": true
-      },
+      "constructions": ["pu", "pe", "eps", "carbon"],
+      "paymentMethods": ["cash", "creditcard", "debitcard"],
       "verified": false,
       "numberOfReviews": 0
     }

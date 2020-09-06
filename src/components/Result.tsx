@@ -1,18 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { styled } from "../utils/theme";
-import { BaseShackWithDistance } from "../types";
+import { BaseShackWithDistance, Construction } from "../types";
 
 interface ResultProps {
   readonly result: BaseShackWithDistance;
   readonly reviewsLabel: string;
-  readonly constructions: string[];
 }
 
 interface ResultInfoGridProps {
   readonly result: BaseShackWithDistance;
   readonly reviewsLabel: string;
-  readonly constructions: string[];
 }
 
 interface ConstructionLabelProps {
@@ -179,14 +177,14 @@ const StyledConstructionLabel = styled.p<ConstructionLabelProps>`
 `;
 
 const ResultInfoGrid: React.SFC<ResultInfoGridProps> = ({
+  result,
   reviewsLabel,
-  constructions,
 }) => {
   return (
     <StyledQuickInfoGrid>
       <StyledGridElementWrapper>
         <StyledConstructionDetails>
-          {constructions.map((construction) => (
+          {result.constructions?.map((construction: Construction) => (
             <StyledConstructionLabel construction={construction}>
               {construction}
             </StyledConstructionLabel>
@@ -200,11 +198,7 @@ const ResultInfoGrid: React.SFC<ResultInfoGridProps> = ({
   );
 };
 
-export const Result: React.SFC<ResultProps> = ({
-  result,
-  reviewsLabel,
-  constructions,
-}) => {
+export const Result: React.SFC<ResultProps> = ({ result, reviewsLabel }) => {
   return (
     <StyledResult verified={result.verified}>
       <Link
@@ -217,11 +211,7 @@ export const Result: React.SFC<ResultProps> = ({
         </StyledRow>
         <StyledSpacer width="80%" />
         <StyledRow>
-          <ResultInfoGrid
-            result={result}
-            reviewsLabel={reviewsLabel}
-            constructions={constructions}
-          />
+          <ResultInfoGrid result={result} reviewsLabel={reviewsLabel} />
         </StyledRow>
         {result.verified && <VerifiedIcon />}
       </Link>

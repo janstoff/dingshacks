@@ -15,45 +15,37 @@
         "latitude": 38.3582965,
         "longitude": -9.4581335
       },
-      "services": {
-        "shaper": false,
-        "currency": "EUR",
-        "constructions": {
-          "pu": true,
-          "pe": true,
-          "eps": true,
-          "soft": true,
-          "carbon": true
+      "shaper": false,
+      "currency": "EUR",
+      "constructions": ["pu", "pe", "eps", "soft", "carbon"],
+      "services": [
+        { "title": "pick up", "price": 0 },
+        {
+          "title": "fix ding or hole",
+          "price": 30,
+          "days": 1
         },
-        "offering": [
-          { "title": "pick up", "price": 0 },
-          {
-            "title": "fix ding or hole",
-            "price": 30,
-            "days": 1
-          },
-          {
-            "title": " fix nose",
-            "price": 65,
-            "days": 1
-          },
-          {
-            "title": " fix futures fin box",
-            "price": 75,
-            "days": 2
-          },
-          {
-            "title": "fix tail",
-            "price": 90,
-            "days": 2
-          },
-          {
-            "title": "fix broken in half board",
-            "price": 150,
-            "days": 2
-          }
-        ]
-      },
+        {
+          "title": " fix nose",
+          "price": 65,
+          "days": 1
+        },
+        {
+          "title": " fix futures fin box",
+          "price": 75,
+          "days": 2
+        },
+        {
+          "title": "fix tail",
+          "price": 90,
+          "days": 2
+        },
+        {
+          "title": "fix broken in half board",
+          "price": 150,
+          "days": 2
+        }
+      ],
       "verified": true
     },
     {
@@ -70,42 +62,37 @@
         "latitude": 38.5582965,
         "longitude": -9.6581335
       },
-      "services": {
-        "shaper": false,
-        "currency": "EUR",
-        "constructions": {
-          "pu": true,
-          "eps": true
+      "shaper": false,
+      "currency": "EUR",
+      "constructions": ["pu", "eps"],
+      "services": [
+        { "title": "pick up", "price": 0 },
+        {
+          "title": "fix ding or hole",
+          "price": 30,
+          "days": 1
         },
-        "offering": [
-          { "title": "pick up", "price": 0 },
-          {
-            "title": "fix ding or hole",
-            "price": 30,
-            "days": 1
-          },
-          {
-            "title": " fix nose",
-            "price": 65,
-            "days": 1
-          },
-          {
-            "title": " fix futures fin box",
-            "price": 75,
-            "days": 2
-          },
-          {
-            "title": "fix tail",
-            "price": 90,
-            "days": 2
-          },
-          {
-            "title": "fix broken in half board",
-            "price": 150,
-            "days": 2
-          }
-        ]
-      },
+        {
+          "title": " fix nose",
+          "price": 65,
+          "days": 1
+        },
+        {
+          "title": " fix futures fin box",
+          "price": 75,
+          "days": 2
+        },
+        {
+          "title": "fix tail",
+          "price": 90,
+          "days": 2
+        },
+        {
+          "title": "fix broken in half board",
+          "price": 150,
+          "days": 2
+        }
+      ],
       "verified": false
     },
     {
@@ -122,44 +109,37 @@
         "latitude": 38.1582965,
         "longitude": -9.1581335
       },
-      "services": {
-        "shaper": false,
-        "currency": "EUR",
-        "constructions": {
-          "pu": true,
-          "pe": true,
-          "soft": true,
-          "carbon": true
+      "shaper": false,
+      "currency": "EUR",
+      "constructions": ["pu", "pe", "soft", "carbon"],
+      "services": [
+        { "title": "pick up", "price": 0 },
+        {
+          "title": "fix ding or hole",
+          "price": 30,
+          "days": 1
         },
-        "offering": [
-          { "title": "pick up", "price": 0 },
-          {
-            "title": "fix ding or hole",
-            "price": 30,
-            "days": 1
-          },
-          {
-            "title": " fix nose",
-            "price": 65,
-            "days": 1
-          },
-          {
-            "title": " fix futures fin box",
-            "price": 75,
-            "days": 2
-          },
-          {
-            "title": "fix tail",
-            "price": 90,
-            "days": 2
-          },
-          {
-            "title": "fix broken in half board",
-            "price": 150,
-            "days": 2
-          }
-        ]
-      },
+        {
+          "title": " fix nose",
+          "price": 65,
+          "days": 1
+        },
+        {
+          "title": " fix futures fin box",
+          "price": 75,
+          "days": 2
+        },
+        {
+          "title": "fix tail",
+          "price": 90,
+          "days": 2
+        },
+        {
+          "title": "fix broken in half board",
+          "price": 150,
+          "days": 2
+        }
+      ],
       "verified": false
     }
   ]
