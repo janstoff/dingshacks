@@ -6,6 +6,7 @@ export interface Coordinates {
 }
 
 export interface Review {
+  readonly id: number;
   readonly user: string;
   readonly comment: string;
   readonly outOfTen: number;
@@ -68,9 +69,7 @@ export interface ShackResponse {
 
 // Backend Data Structures
 
-export interface ReviewTableEntry extends Review {
-  readonly id: string;
-}
+export type ReviewTableEntry = Review;
 
 export interface ShacksTableData {
   readonly shacks: Shack[];

@@ -135,7 +135,22 @@ const StyledGridElementWrapper = styled.div`
   }
 `;
 
-const StyledConstructionDetails = styled.div``;
+const StyledConstructionDetails = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.3rem;
+  border-radius: 1rem;
+  background-color: white;
+  padding: 0.5rem;
+  text-align: left;
+  font-size: 1rem;
+
+  @media only screen and (min-width: 560px) {
+    gap: 1rem;
+    padding: 1rem;
+  }
+`;
 
 const ResultInfoGrid: React.SFC<ResultInfoGridProps> = ({
   result,

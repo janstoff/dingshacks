@@ -3,11 +3,9 @@ import { styled } from "../utils/theme";
 import { Results } from "../Results";
 import {
   BaseShackWithDistance,
-  FullShack,
   SearchResultsResponse,
   Coordinates,
 } from "../types";
-import { ShackPage } from "../components/ShackPage";
 import { createRankedClosestShacks } from "../utils/create-ranked-closest-shacks";
 
 const StyledLSG = styled.div`
@@ -42,12 +40,9 @@ const results: BaseShackWithDistance[] = createRankedClosestShacks(
   10
 );
 
-const shackData: FullShack = require("../mocks/backend-reponses/shack-1.json");
-
 export const LSG: React.SFC = () => (
   <StyledLSG>
     <Results renderSection={true} results={results} />
     <hr></hr>
-    <ShackPage shackData={shackData}></ShackPage>
   </StyledLSG>
 );

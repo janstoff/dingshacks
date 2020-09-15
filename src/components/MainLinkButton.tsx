@@ -20,9 +20,10 @@ const fadeInAnimation = keyframes`
 
 const StyledMainLinkButton = styled.a`
   border: none;
-  width: 20rem;
-  padding: 1.5rem 4rem;
+  width: 12rem;
+  padding: 1rem 3rem;
   font: inherit;
+  font-size: 1.5rem;
   cursor: pointer;
   outline: inherit;
   text-transform: uppercase;
@@ -60,6 +61,12 @@ const StyledMainLinkButton = styled.a`
   &:hover::after {
     transform: scale(1.1);
     opacity: 0;
+  }
+
+  @media only screen and (min-width: 560px) {
+    width: 20rem;
+    padding: 1.5rem 4rem;
+    font-size: 2rem;
   }
 `;
 

@@ -7,10 +7,11 @@ interface ConstructionLabelProps {
 
 const StyledConstructionLabel = styled.p<ConstructionLabelProps>`
   display: inline-block;
-  padding: 0.3rem;
-  margin-right: 0.3rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.3rem;
+  text-align: center;
   width: 5rem;
+  height: auto;
   color: ${(props) => {
     if (props.construction === "carbon") {
       return "white";
@@ -35,10 +36,6 @@ const StyledConstructionLabel = styled.p<ConstructionLabelProps>`
     }
     return props.theme.colors.colorBackgroundPrimary;
   }};
-
-  &:last-child {
-    margin-right: 0;
-  }
 `;
 
 export const ConstructionLabel: React.SFC<ConstructionLabelProps> = ({

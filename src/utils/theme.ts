@@ -48,7 +48,7 @@ export const theme: AppStyleTheme = {
     colorConstructionEps: "#e6e6e6",
     colorConstructionSoft: "#96ebc3",
     colorConstructionCarbon: "#40484f",
-    colorShackPageBackground: "#f5fcff",
+    colorShackPageBackground: "#fafdff",
   },
 };
 

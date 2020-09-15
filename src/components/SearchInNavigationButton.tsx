@@ -1,22 +1,22 @@
 import React from "react";
 import { styled } from "../utils/theme";
 
-export interface ReviewButtonProps {
+export interface SearchInNavigationButtonProps {
   readonly onClick: (
     event?: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void;
-  readonly href: string;
   readonly icon?: JSX.Element;
 }
 
-const StyledReviewButton = styled.button`
+const StyledSearchInNavigationButton = styled.button`
   border: none;
   font-size: 1rem;
+  width: 10rem;
   padding: 1rem 1.5rem;
   cursor: pointer;
   text-transform: uppercase;
-  background-color: ${(props) => props.theme.colors.colorSecondary};
-  color: inherit;
+  background-color: ${(props) => props.theme.colors.colorPrimary};
+  color: white;
   text-decoration: none; /* no underline */
   font-weight: 600;
   border-radius: 10rem;
@@ -35,7 +35,7 @@ const StyledReviewButton = styled.button`
   &::after {
     content: ""; /* otherwise the pseudo element would not be active */
     border-radius: 10rem;
-    background-color: ${(props) => props.theme.colors.colorSecondary};
+    background-color: ${(props) => props.theme.colors.colorPrimary};
     position: absolute;
     z-index: -1;
     top: 0;
@@ -49,7 +49,7 @@ const StyledReviewButton = styled.button`
   }
 `;
 
-export const ReviewButton: React.SFC<ReviewButtonProps> = ({
+export const SearchInNavigationButton: React.SFC<SearchInNavigationButtonProps> = ({
   onClick,
   children,
 }) => {
@@ -59,8 +59,8 @@ export const ReviewButton: React.SFC<ReviewButtonProps> = ({
   };
 
   return (
-    <StyledReviewButton onClick={() => handleClick()}>
+    <StyledSearchInNavigationButton onClick={() => handleClick()}>
       {children}
-    </StyledReviewButton>
+    </StyledSearchInNavigationButton>
   );
 };

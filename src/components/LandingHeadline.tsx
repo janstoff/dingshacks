@@ -77,8 +77,8 @@ const StyledPrimaryHeadline = styled.span`
     letter-spacing: 2rem;
   }
   @media only screen and (max-width: 430px) {
-    font-size: 3.8rem;
-    letter-spacing: 1.8rem;
+    font-size: 3rem;
+    letter-spacing: 1.4rem;
   }
 `;
 

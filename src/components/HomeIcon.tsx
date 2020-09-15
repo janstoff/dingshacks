@@ -1,6 +1,10 @@
 import React from "react";
 import { styled } from "../utils/theme";
 
+interface HomeIconProps {
+  readonly color?: "light" | "dark";
+}
+
 const StyledHomeIcon = styled.div`
   position: absolute;
   top: 0;
@@ -33,12 +37,14 @@ const StyledImage = styled.img`
   }
 `;
 
-export const HomeIcon: React.SFC = () => (
+export const HomeIcon: React.SFC<HomeIconProps> = ({ color }) => (
   <StyledHomeIcon>
     <StyledImageWrapper>
       <StyledImage
         alt="logo"
-        src={require("../assets/logo-white-transparent.png")}
+        src={require(color === "dark"
+          ? "../assets/logo-dark-transparent.png"
+          : "../assets/logo-white-transparent.png")}
       />
     </StyledImageWrapper>
   </StyledHomeIcon>

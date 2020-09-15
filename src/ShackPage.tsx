@@ -1,7 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { ShackPage as ShackPageComponent } from "./components/ShackPage";
+import { ShackPageLayout } from "./components/ShackPageLayout";
 import { FullShack, ShackResponse } from "./types";
+import {
+  ShackPageHeader,
+  ShackContactSection,
+  ShackInstagramSection,
+  ShackConstructionsSection,
+  ConstructionLabel,
+  ShackReviewsSection,
+  ShackReview,
+} from "./components";
 
 export const ShackPage: React.SFC = () => {
   const { id } = useParams();
@@ -20,7 +29,38 @@ export const ShackPage: React.SFC = () => {
     return <div>Loading...</div>;
   }
 
+  const {
+    name,
+    averageRating,
+    numberOfReviews,
+    constructions,
+    reviews,
+  } = shackData;
   return (
-    <ShackPageComponent shackData={shackData}>{shackData}</ShackPageComponent>
+    <ShackPageLayout>
+      <ShackPageHeader
+        name={name}
+        averageRating={averageRating}
+        numberOfReviews={numberOfReviews}
+      />
+      <ShackContactSection shackData={shackData} />
+      <ShackInstagramSection>Instagramm</ShackInstagramSection>
+      {constructions && (
+        <ShackConstructionsSection
+          headline="Constructions"
+          constructions={constructions.map((construction) => (
+            <ConstructionLabel key={construction} construction={construction} />
+          ))}
+        />
+      )}
+      {reviews && (
+        <ShackReviewsSection
+          headline="Reviews"
+          reviews={reviews.map((review) => (
+            <ShackReview key={review.id} review={review} />
+          ))}
+        />
+      )}
+    </ShackPageLayout>
   );
 };

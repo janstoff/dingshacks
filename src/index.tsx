@@ -8,6 +8,8 @@ import * as serviceWorker from "./serviceWorker";
 import { theme, styled } from "./utils/theme";
 import { LSG } from "./lsg";
 import { ShackPage } from "./ShackPage";
+import { pages } from "./utils/config";
+import WithMainNavigation from "./WithMainNavigation";
 
 const StyledAppWrapper = styled.div`
   color: ${(props) => props.theme.colors.colorTertiary};
@@ -36,11 +38,16 @@ ReactDOM.render(
             <Route exact path="/">
               <Start />
             </Route>
+            <Route exact path="/results">
+              <Results />
+            </Route>
             <Route exact path="/lsg">
               <LSG />
             </Route>
             <Route path="/:id/:name">
-              <ShackPage />
+              <WithMainNavigation pages={pages}>
+                <ShackPage />
+              </WithMainNavigation>
             </Route>
           </Switch>
         </Router>
