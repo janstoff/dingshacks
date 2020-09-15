@@ -12,7 +12,8 @@ interface AppStyleTheme {
     readonly colorBackgroundPrimary: string;
     readonly colorBorderLightGrey: string;
     readonly colorBorderSuperLightGrey: string;
-    readonly gradientPrimary: string;
+    readonly greyLight: string;
+    readonly grey: string;
     readonly gradientSecondary: string;
     readonly colorFormInputInvalid: string;
     readonly colorFormInputValid: string;
@@ -21,6 +22,7 @@ interface AppStyleTheme {
     readonly colorConstructionEps: string;
     readonly colorConstructionSoft: string;
     readonly colorConstructionCarbon: string;
+    readonly colorShackPageBackground: string;
   };
 }
 
@@ -36,7 +38,8 @@ export const theme: AppStyleTheme = {
     colorBackgroundPrimary: "#ffffff",
     colorBorderLightGrey: "#e6e6e6",
     colorBorderSuperLightGrey: "#fafafa",
-    gradientPrimary: "#f5f5f5",
+    grey: "#e6e6e6",
+    greyLight: "#f5f5f5",
     gradientSecondary: "black",
     colorFormInputInvalid: "#911414",
     colorFormInputValid: "#0ab30a",
@@ -45,6 +48,7 @@ export const theme: AppStyleTheme = {
     colorConstructionEps: "#e6e6e6",
     colorConstructionSoft: "#96ebc3",
     colorConstructionCarbon: "#40484f",
+    colorShackPageBackground: "#f5fcff",
   },
 };
 

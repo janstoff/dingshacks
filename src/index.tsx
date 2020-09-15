@@ -17,10 +17,13 @@ const StyledAppWrapper = styled.div`
   box-sizing: border-box;
   text-align: center;
   margin: 0 auto;
-  padding: 2rem;
-  @media only screen and (max-width: 760px) {
-    padding-right: 1rem;
-    padding-left: 1rem;
+
+  @media only screen and (min-width: 560px) {
+    padding: 1rem;
+  }
+
+  @media only screen and (min-width: 960px) {
+    padding: 2rem;
   }
 `;
 

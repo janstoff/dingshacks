@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { styled } from "../utils/theme";
 import { BaseShackWithDistance, Construction } from "../types";
+import { ConstructionLabel } from ".";
 
 interface ResultProps {
   readonly result: BaseShackWithDistance;
@@ -11,10 +12,6 @@ interface ResultProps {
 interface ResultInfoGridProps {
   readonly result: BaseShackWithDistance;
   readonly reviewsLabel: string;
-}
-
-interface ConstructionLabelProps {
-  readonly construction: string;
 }
 
 interface StyledResultProps {
@@ -140,42 +137,6 @@ const StyledGridElementWrapper = styled.div`
 
 const StyledConstructionDetails = styled.div``;
 
-const StyledConstructionLabel = styled.p<ConstructionLabelProps>`
-  display: inline-block;
-  padding: 0.3rem;
-  margin-right: 0.3rem;
-  border-radius: 0.3rem;
-  width: 5rem;
-  color: ${(props) => {
-    if (props.construction === "carbon") {
-      return "white";
-    }
-    return "inherit";
-  }};
-  background-color: ${(props) => {
-    if (props.construction === "pu") {
-      return props.theme.colors.colorConstructionPu;
-    }
-    if (props.construction === "pe") {
-      return props.theme.colors.colorConstructionPe;
-    }
-    if (props.construction === "eps") {
-      return props.theme.colors.colorConstructionEps;
-    }
-    if (props.construction === "soft") {
-      return props.theme.colors.colorConstructionSoft;
-    }
-    if (props.construction === "carbon") {
-      return props.theme.colors.colorConstructionCarbon;
-    }
-    return props.theme.colors.colorBackgroundPrimary;
-  }};
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-
 const ResultInfoGrid: React.SFC<ResultInfoGridProps> = ({
   result,
   reviewsLabel,
@@ -185,9 +146,7 @@ const ResultInfoGrid: React.SFC<ResultInfoGridProps> = ({
       <StyledGridElementWrapper>
         <StyledConstructionDetails>
           {result.constructions?.map((construction: Construction) => (
-            <StyledConstructionLabel construction={construction}>
-              {construction}
-            </StyledConstructionLabel>
+            <ConstructionLabel key={construction} construction={construction} />
           ))}
         </StyledConstructionDetails>
       </StyledGridElementWrapper>

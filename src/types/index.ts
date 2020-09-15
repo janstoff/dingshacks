@@ -52,6 +52,8 @@ export interface Service {
 
 export interface FullShack extends Shack {
   readonly reviews?: Review[];
+  readonly numberOfReviews?: number;
+  readonly averageRating?: number;
 }
 
 // Backend Responses Data Structures
