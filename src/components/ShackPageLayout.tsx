@@ -2,7 +2,6 @@ import React from "react";
 import { styled } from "../utils/theme";
 
 const StyledShackPageLayout = styled.div`
-  grid-area: "shackPage";
   justify-self: end;
   display: grid;
   padding: 0.2rem;

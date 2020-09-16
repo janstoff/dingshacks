@@ -1,10 +1,9 @@
 import React from "react";
 import { styled } from "../utils/theme";
+import { Link } from "react-router-dom";
 
 export interface SearchInNavigationButtonProps {
-  readonly onClick: (
-    event?: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => void;
+  readonly href: string;
   readonly icon?: JSX.Element;
 }
 
@@ -50,17 +49,14 @@ const StyledSearchInNavigationButton = styled.button`
 `;
 
 export const SearchInNavigationButton: React.SFC<SearchInNavigationButtonProps> = ({
-  onClick,
+  href,
   children,
 }) => {
-  const handleClick = () => {
-    onClick();
-    console.log("Clicked main link button!");
-  };
-
   return (
-    <StyledSearchInNavigationButton onClick={() => handleClick()}>
-      {children}
-    </StyledSearchInNavigationButton>
+    <Link to={href}>
+      <StyledSearchInNavigationButton>
+        {children}
+      </StyledSearchInNavigationButton>
+    </Link>
   );
 };

@@ -8,11 +8,7 @@ import {
 } from "./components";
 import { useHideDownButton } from "./hooks/use-hide-down-button";
 
-export interface LandingProps {
-  readonly onLocateClick: () => void;
-}
-
-export const Landing: React.SFC<LandingProps> = ({ onLocateClick }) => {
+export const Landing: React.FC = () => {
   const [downButtonInitialized, setDownButtonInitialized] = React.useState(
     false
   );
@@ -32,9 +28,7 @@ export const Landing: React.SFC<LandingProps> = ({ onLocateClick }) => {
           primaryHeadline="dinged board?"
           secondaryHeadline="find the best repair near you"
         />
-        <MainLinkButton onClick={onLocateClick} href="#results">
-          Locate
-        </MainLinkButton>
+        <MainLinkButton href="/results">Locate</MainLinkButton>
       </LandingLayout>
       {downButtonInitialized && !hideDownButton && (
         <DownButton anchor="anchor" />

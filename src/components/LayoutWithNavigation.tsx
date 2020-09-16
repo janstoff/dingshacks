@@ -2,23 +2,19 @@ import React from "react";
 import { styled } from "../utils/theme";
 
 const StyledLayoutWithNavigation = styled.div`
-  display: grid;
+  display: flex;
   padding: 0.2rem;
   gap: 3rem;
-  grid-template-areas:
-    "navigation"
-    "shackPage";
+  flex-direction: column;
 
   @media only screen and (min-width: 560px) {
     padding: 1rem;
-    grid-template-areas:
-      "navigation"
-      "shackPage";
   }
 
   @media only screen and (min-width: 960px) {
     padding: 2rem;
-    grid-template-areas: "navigation shackPage";
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 

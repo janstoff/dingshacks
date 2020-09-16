@@ -10,15 +10,16 @@ interface NavigationProps {
 }
 
 const StyledNavigation = styled.div`
-  grid-area: "navigation";
   display: flex;
+  gap: 5rem;
 
   @media only screen and (min-width: 560px) {
   }
 
   @media only screen and (min-width: 960px) {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 10rem;
   }
 `;
 
