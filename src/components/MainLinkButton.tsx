@@ -15,7 +15,7 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-const StyledMainLinkButton = styled.a`
+const StyledMainLinkButton = styled.button`
   border: none;
   width: 12rem;
   padding: 1rem 3rem;
@@ -72,7 +72,7 @@ export const MainLinkButton: React.SFC<MainLinkButtonProps> = ({
   children,
 }) => {
   return (
-    <Link to={href}>
+    <Link to={href} style={{ textDecoration: "none" }}>
       <StyledMainLinkButton>{children}</StyledMainLinkButton>
     </Link>
   );

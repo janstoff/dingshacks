@@ -6,6 +6,7 @@ interface AppStyleTheme {
     readonly colorPrimaryLight: string;
     readonly colorPrimarySuperLight: string;
     readonly colorSecondary: string;
+    readonly colorSecondaryLight: string;
     readonly colorTertiary: string;
     readonly colorText: string;
     readonly colorTextWhite: string;
@@ -32,6 +33,7 @@ export const theme: AppStyleTheme = {
     colorPrimaryLight: "#ff6666",
     colorPrimarySuperLight: "#fffcfc",
     colorSecondary: "#66d9ff",
+    colorSecondaryLight: "#87e1ff",
     colorTertiary: "#40484f",
     colorText: "#40494f",
     colorTextWhite: "#ffffff",

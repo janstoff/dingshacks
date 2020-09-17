@@ -1,12 +1,12 @@
 import React from "react";
 import { styled } from "../utils/theme";
-import { Page } from "../utils/config";
-import { Link } from "react-router-dom";
 
 interface NavigationProps {
   readonly icon: JSX.Element;
-  readonly pages: Page[];
-  readonly search: JSX.Element;
+}
+
+interface NavigationPageListItemProps {
+  readonly bold?: boolean;
 }
 
 const StyledNavigation = styled.div`
@@ -25,16 +25,17 @@ const StyledNavigation = styled.div`
 
 const StyledIconWrapper = styled.div``;
 
-const StyledList = styled.ul`
+const StyledNavigationPageList = styled.ul`
+  padding-left: 1.5rem;
   list-style-type: none;
   text-align: left;
   color: ${(props) => props.theme.colors.colorText};
 `;
 
-const StyledListItem = styled.li`
-  padding-left: 1.5rem;
+const StyledNavigationPageListItem = styled.li<NavigationPageListItemProps>`
   transition: all 0.2s;
   margin-bottom: 1.5rem;
+  ${(props) => props.bold && "font-weight: 600;"}
 
   &:hover {
     transform: translateY(-0.1rem);
@@ -46,7 +47,7 @@ const StyledListItem = styled.li`
   }
 `;
 
-const StyledSearchWrapper = styled.li`
+const StyledNavigationSearch = styled.li`
   padding: 1rem 1.5rem;
   margin-top: 3rem;
   background-color: ${(props) => props.theme.colors.colorShackPageBackground};
@@ -54,27 +55,28 @@ const StyledSearchWrapper = styled.li`
   width: 13rem;
 `;
 
-export const Navigation: React.SFC<NavigationProps> = ({
-  icon,
-  pages,
-  search,
-}) => {
+export const NavigationPageList: React.FC = ({ children }) => (
+  <StyledNavigationPageList>{children}</StyledNavigationPageList>
+);
+
+export const NavigationPageListItem: React.FC<NavigationPageListItemProps> = ({
+  children,
+  bold,
+}) => (
+  <StyledNavigationPageListItem bold={bold}>
+    {children}
+  </StyledNavigationPageListItem>
+);
+
+export const NavigationSearch: React.FC = ({ children }) => (
+  <StyledNavigationSearch>{children}</StyledNavigationSearch>
+);
+
+export const Navigation: React.SFC<NavigationProps> = ({ icon, children }) => {
   return (
     <StyledNavigation>
       <StyledIconWrapper>{icon}</StyledIconWrapper>
-      <StyledList>
-        {pages.map((page) => (
-          <StyledListItem>
-            <Link
-              to={page.href}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              {page.name}
-            </Link>
-          </StyledListItem>
-        ))}
-        <StyledSearchWrapper>{search}</StyledSearchWrapper>
-      </StyledList>
+      {children}
     </StyledNavigation>
   );
 };

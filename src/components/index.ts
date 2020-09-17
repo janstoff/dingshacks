@@ -2,21 +2,32 @@ export { ConstructionLabel } from "./ConstructionLabel";
 export { DownButton } from "./DownButton";
 export { Header } from "./Header";
 export { HomeIcon } from "./HomeIcon";
-export { IconInNavigation } from "./IconInNavigation";
+export { NavigationIcon } from "./NavigationIcon";
 export { LandingHeadline } from "./LandingHeadline";
 export { LandingLayout } from "./LandingLayout";
 export { LandingWrapper } from "./LandingWrapper";
 export { LayoutWithNavigation } from "./LayoutWithNavigation";
 export { MainLinkButton } from "./MainLinkButton";
-export { Navigation } from "./Navigation";
+export {
+  Navigation,
+  NavigationPageList,
+  NavigationPageListItem,
+  NavigationSearch,
+} from "./Navigation";
+export { NavigationAddShackButton } from "./NavigationAddShackButton";
 export { PageContent } from "./PageContent";
 export { Rating } from "./Rating";
 export { Result } from "./Result";
-export { ResultsLayout, ResultsHeadline } from "./Results";
+export {
+  ResultsLayout,
+  ResultsHeadline,
+  ResultsHeadlinesWrapper,
+  ResultsSubHeadline,
+} from "./Results";
 export { ResultWrapper } from "./ResultWrapper";
 export { ReviewButton } from "./ReviewButton";
 export { Search } from "./Search";
-export { SearchInNavigationButton } from "./SearchInNavigationButton";
+export { NavigationLocateButton } from "./NavigationLocateButton";
 export {
   Section,
   SectionHeadline,

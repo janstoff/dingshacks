@@ -5,6 +5,7 @@ export interface Page {
 
 export const pages = [
   { name: "home", href: "/" },
+  { name: "story", href: "/story" },
+  { name: "results", href: "/results" },
   { name: "contact", href: "/contact" },
-  { name: "faq", href: "/faq" },
 ];

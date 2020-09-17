@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "../utils/theme";
 
 const StyledResultWrapper = styled.div`
-  width: 80%;
+  width: 100%;
   margin-bottom: 0.3rem;
 
   &:last-child {
