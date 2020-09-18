@@ -9,7 +9,7 @@ export { LandingLayout } from "./LandingLayout";
 export { LandingWrapper } from "./LandingWrapper";
 export { LayoutWithNavigation } from "./LayoutWithNavigation";
 export { MainLinkButton } from "./MainLinkButton";
-export { MobileNavigation } from "./MobileNavigation";
+export { NavigationMobile, NavigationMobileHeader } from "./NavigationMobile";
 export {
   Navigation,
   NavigationPageList,
@@ -17,16 +17,18 @@ export {
   NavigationSearch,
 } from "./Navigation";
 export { NavigationAddShackButton } from "./NavigationAddShackButton";
+export { NavigationMobileMenu } from "./NavigationMobileMenu";
 export { NavigationMobileMenuButton } from "./NavigationMobileMenuButton";
+export { NavigationMobileMenuCloseButton } from "./NavigationMobileMenuCloseButton";
 export { PageContent } from "./PageContent";
 export { Rating } from "./Rating";
 export { Result } from "./Result";
 export {
-  ResultsLayout,
-  ResultsHeadline,
-  ResultsHeadlinesWrapper,
-  ResultsSubHeadline,
-} from "./Results";
+  PageLayout,
+  PageHeadline,
+  PageHeadlinesWrapper,
+  PageSubHeadline,
+} from "./PageLayout";
 export { ResultWrapper } from "./ResultWrapper";
 export { ReviewButton } from "./ReviewButton";
 export { Search } from "./Search";

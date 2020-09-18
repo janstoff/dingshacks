@@ -10,6 +10,10 @@ import {
   ConstructionLabel,
   ShackReviewsSection,
   ShackReview,
+  PageLayout,
+  PageHeadlinesWrapper,
+  PageHeadline,
+  PageSubHeadline,
 } from "./components";
 
 export const ShackPage: React.SFC = () => {
@@ -37,30 +41,39 @@ export const ShackPage: React.SFC = () => {
     reviews,
   } = shackData;
   return (
-    <ShackPageLayout>
-      <ShackPageHeader
-        name={name}
-        averageRating={averageRating}
-        numberOfReviews={numberOfReviews}
-      />
-      <ShackContactSection shackData={shackData} />
-      <ShackInstagramSection>Instagramm</ShackInstagramSection>
-      {constructions && (
-        <ShackConstructionsSection
-          headline="Constructions"
-          constructions={constructions.map((construction) => (
-            <ConstructionLabel key={construction} construction={construction} />
-          ))}
+    <PageLayout>
+      <PageHeadlinesWrapper>
+        <PageHeadline>Results</PageHeadline>
+        <PageSubHeadline>Details on each shack</PageSubHeadline>
+      </PageHeadlinesWrapper>
+      <ShackPageLayout>
+        <ShackPageHeader
+          name={name}
+          averageRating={averageRating}
+          numberOfReviews={numberOfReviews}
         />
-      )}
-      {reviews && (
-        <ShackReviewsSection
-          headline="Reviews"
-          reviews={reviews.map((review) => (
-            <ShackReview key={review.id} review={review} />
-          ))}
-        />
-      )}
-    </ShackPageLayout>
+        <ShackContactSection shackData={shackData} />
+        <ShackInstagramSection>Instagramm</ShackInstagramSection>
+        {constructions && (
+          <ShackConstructionsSection
+            headline="Constructions"
+            constructions={constructions.map((construction) => (
+              <ConstructionLabel
+                key={construction}
+                construction={construction}
+              />
+            ))}
+          />
+        )}
+        {reviews && (
+          <ShackReviewsSection
+            headline="Reviews"
+            reviews={reviews.map((review) => (
+              <ShackReview key={review.id} review={review} />
+            ))}
+          />
+        )}
+      </ShackPageLayout>
+    </PageLayout>
   );
 };

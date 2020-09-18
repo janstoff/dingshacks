@@ -9,7 +9,7 @@ interface NavigationPageListItemProps {
   readonly bold?: boolean;
 }
 
-const StyledNavigation = styled.div`
+const StyledNavigation = styled.nav`
   display: flex;
   gap: 5rem;
 

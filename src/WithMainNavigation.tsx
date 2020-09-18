@@ -19,21 +19,32 @@ interface NavigationProps {
 const WithMainNavigation: React.FC<NavigationProps> = ({ pages, children }) => {
   return (
     <LayoutWithNavigation>
-      <BreakpointWrapper max={Breakpoints.b960}>
-        <MobileNavigation></MobileNavigation>
-      </BreakpointWrapper>
-      <BreakpointWrapper min={Breakpoints.b960}>
-        <Navigation icon={<NavigationIcon color="dark" size="desktop" />}>
-          <NavigationPageList>
-            {pages.map((page) => (
-              <NavigationEntry key={page.href} page={page} />
-            ))}
-          </NavigationPageList>
-          <NavigationAddShackButton href="/addshack">
-            Add a shack here
-          </NavigationAddShackButton>
-        </Navigation>
-      </BreakpointWrapper>
+      <div>
+        <BreakpointWrapper max={Breakpoints.b960}>
+          <MobileNavigation>
+            <NavigationPageList>
+              {pages.map((page) => (
+                <NavigationEntry key={page.href} page={page} />
+              ))}
+            </NavigationPageList>
+            <NavigationAddShackButton href="/addshack">
+              Add a shack here
+            </NavigationAddShackButton>
+          </MobileNavigation>
+        </BreakpointWrapper>
+        <BreakpointWrapper min={Breakpoints.b960}>
+          <Navigation icon={<NavigationIcon color="dark" size="desktop" />}>
+            <NavigationPageList>
+              {pages.map((page) => (
+                <NavigationEntry key={page.href} page={page} />
+              ))}
+            </NavigationPageList>
+            <NavigationAddShackButton href="/addshack">
+              Add a shack here
+            </NavigationAddShackButton>
+          </Navigation>
+        </BreakpointWrapper>
+      </div>
       <PageContent>{children}</PageContent>
     </LayoutWithNavigation>
   );

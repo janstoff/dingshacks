@@ -2,10 +2,10 @@ import React from "react";
 import {
   ResultWrapper,
   Result,
-  ResultsLayout,
-  ResultsHeadline,
-  ResultsSubHeadline,
-  ResultsHeadlinesWrapper,
+  PageLayout,
+  PageHeadline,
+  PageSubHeadline,
+  PageHeadlinesWrapper,
 } from "./components";
 import {
   Coordinates,
@@ -78,14 +78,14 @@ export const Results: React.FC = () => {
   }
 
   return (
-    <ResultsLayout>
-      <ResultsHeadlinesWrapper>
-        <ResultsHeadline>Results</ResultsHeadline>
-        <ResultsSubHeadline>
+    <PageLayout>
+      <PageHeadlinesWrapper>
+        <PageHeadline>Results</PageHeadline>
+        <PageSubHeadline>
           Repair Shacks In Order Of Distance To Your Location
-        </ResultsSubHeadline>
-      </ResultsHeadlinesWrapper>
+        </PageSubHeadline>
+      </PageHeadlinesWrapper>
       {renderResults(results)}
-    </ResultsLayout>
+    </PageLayout>
   );
 };

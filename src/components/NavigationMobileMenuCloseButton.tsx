@@ -1,16 +1,17 @@
 import React from "react";
 import { styled } from "../utils/theme";
 
-interface NavigationMobileMenuButtonProps {
+interface NavigationMobileMenuCloseButtonProps {
   readonly onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const StyledNavigationMobileMenuButton = styled.button`
+const StyledNavigationMobileMenuCloseButton = styled.button`
   display: inline-block;
   height: 8rem;
   width: 8rem;
   border: none;
-  padding: 2.7rem 2.7rem;
+  font-size: 2rem;
+  padding: 3.2rem 3.2rem;
   margin: 0;
   text-decoration: none;
   background: none;
@@ -28,11 +29,11 @@ const StyledNavigationMobileMenuButton = styled.button`
   }
 `;
 
-export const NavigationMobileMenuButton: React.FC<NavigationMobileMenuButtonProps> = ({
+export const NavigationMobileMenuCloseButton: React.FC<NavigationMobileMenuCloseButtonProps> = ({
   children,
   onClick,
 }) => (
-  <StyledNavigationMobileMenuButton onClick={(event) => onClick(event)}>
+  <StyledNavigationMobileMenuCloseButton onClick={(event) => onClick(event)}>
     {children}
-  </StyledNavigationMobileMenuButton>
+  </StyledNavigationMobileMenuCloseButton>
 );
