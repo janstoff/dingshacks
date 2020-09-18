@@ -27,24 +27,20 @@ const StyledResult = styled.div<StyledResultProps>`
   border: ${({ verified }) => (verified ? "2px" : "1px")} solid
     ${({ verified, theme }) =>
       verified
-        ? theme.colors.colorPrimaryLight
+        ? theme.colors.colorTertiary
         : theme.colors.colorBorderLightGrey};
   cursor: pointer;
   transition: all 0.2s;
   &:active {
-    border-color: ${({ verified, theme }) =>
-      verified ? theme.colors.colorPrimary : theme.colors.colorTertiary};
     background-color: ${({ verified, theme }) =>
       verified
-        ? theme.colors.colorPrimarySuperLight
+        ? theme.colors.colorTertiary
         : theme.colors.colorBackgroundPrimary};
     transform: translateY(-0.3rem);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   }
   @media (hover: hover) {
     &:hover {
-      border-color: ${({ verified, theme }) =>
-        verified ? theme.colors.colorPrimary : theme.colors.colorTertiary};
       background-color: ${({ verified, theme }) =>
         verified
           ? theme.colors.colorPrimarySuperLight
@@ -83,7 +79,7 @@ const StyledIconWrappingCircle = styled.div`
   align-items: center;
   background: white;
   border-radius: 50%;
-  border: 2px solid ${(props) => props.theme.colors.colorPrimaryLight};
+  border: 2px solid ${(props) => props.theme.colors.colorTertiary};
   display: flex;
   flex-shrink: 0;
   height: 1.95rem;
@@ -108,7 +104,7 @@ const StyledIconWrappingCircle = styled.div`
 `;
 
 const StyledIcon = styled.div`
-  color: ${(props) => props.theme.colors.colorPrimaryLight};
+  color: ${(props) => props.theme.colors.colorTertiary};
 `;
 
 const VerifiedIcon: React.SFC = () => (

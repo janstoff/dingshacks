@@ -11,6 +11,6 @@ const StyledHeader = styled.header`
   z-index: 1;
 `;
 
-export const Header: React.SFC = ({ children }) => (
+export const Header: React.FC = ({ children }) => (
   <StyledHeader>{children}</StyledHeader>
 );

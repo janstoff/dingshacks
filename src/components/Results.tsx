@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "../utils/theme";
 
 const StyledResultsLayout = styled.div`
-  width: 80%;
+  width: 100%;
 `;
 
 const StyledResultsHeadlinesWrapper = styled.div`
