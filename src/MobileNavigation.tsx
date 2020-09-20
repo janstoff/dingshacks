@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  NavigationMobile,
   NavigationMobileHeader,
   NavigationIcon,
   NavigationMobileMenuButton,
@@ -8,19 +7,23 @@ import {
   NavigationMobileMenuCloseButton,
 } from "./components";
 import { useRouteMatch } from "react-router-dom";
+import { useOnClickOutsideNavigation } from "./hooks/use-on-click-outside-navigation";
 
 export const MobileNavigation: React.FC = ({ children }) => {
   const [open, setOpen] = React.useState(false);
-  const routeMatch = useRouteMatch("/home");
+  const matchHomeRoute = useRouteMatch("/");
+  const navigationElementNode = React.useRef<HTMLDivElement>(null);
+
+  useOnClickOutsideNavigation(navigationElementNode, () => setOpen(false));
 
   return (
-    <NavigationMobile>
+    <div ref={navigationElementNode}>
       <NavigationMobileHeader>
-        <NavigationIcon color="dark" />
+        <NavigationIcon color={matchHomeRoute?.isExact ? "light" : "dark"} />
         {!open && (
           <NavigationMobileMenuButton onClick={() => setOpen(true)}>
             <img
-              src={require(routeMatch?.isExact
+              src={require(matchHomeRoute?.isExact
                 ? "./assets/menu-icon-white.svg"
                 : "./assets/menu-icon-dark.svg")}
               alt="Menu"
@@ -41,6 +44,6 @@ export const MobileNavigation: React.FC = ({ children }) => {
           {children}
         </NavigationMobileMenu>
       )}
-    </NavigationMobile>
+    </div>
   );
 };

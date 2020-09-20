@@ -3,6 +3,8 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 
 export interface MainLinkButtonProps {
+  readonly color?: "primary" | "secondary";
+  readonly type?: "submit";
   readonly href: string;
 }
 
@@ -15,7 +17,7 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-const StyledMainLinkButton = styled.button`
+const StyledMainLinkButton = styled.button<Pick<MainLinkButtonProps, "color">>`
   border: none;
   width: 12rem;
   padding: 1rem 3rem;
@@ -24,7 +26,10 @@ const StyledMainLinkButton = styled.button`
   cursor: pointer;
   outline: inherit;
   text-transform: uppercase;
-  background-color: ${(props) => props.theme.colors.colorPrimaryLight};
+  background-color: ${(props) =>
+    props.color === "secondary"
+      ? props.theme.colors.colorSecondaryLight
+      : props.theme.colors.colorPrimaryLight};
   color: ${(props) => props.theme.colors.colorTertiary};
   text-decoration: none; /* no underline */
   font-weight: 600;
@@ -68,12 +73,16 @@ const StyledMainLinkButton = styled.button`
 `;
 
 export const MainLinkButton: React.SFC<MainLinkButtonProps> = ({
+  color,
+  type,
   href,
   children,
 }) => {
   return (
     <Link to={href} style={{ textDecoration: "none" }}>
-      <StyledMainLinkButton>{children}</StyledMainLinkButton>
+      <StyledMainLinkButton color={color} type={type}>
+        {children}
+      </StyledMainLinkButton>
     </Link>
   );
 };

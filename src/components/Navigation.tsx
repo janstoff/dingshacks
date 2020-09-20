@@ -35,6 +35,7 @@ const StyledNavigationPageList = styled.ul`
 const StyledNavigationPageListItem = styled.li<NavigationPageListItemProps>`
   transition: all 0.2s;
   margin-bottom: 1.5rem;
+  list-style-type: none;
   ${(props) => props.bold && "font-weight: 600;"}
 
   &:hover {

@@ -1,7 +1,17 @@
 export { Breakpoints, BreakpointWrapper } from "./BreakpointWrapper";
 export { ConstructionLabel } from "./ConstructionLabel";
+export {
+  Contact,
+  FormGroup,
+  FormInput,
+  FormElementLabel,
+  FormTextInputArea,
+} from "./Contact";
 export { DownButton } from "./DownButton";
-export { Header } from "./Header";
+export {
+  NavigationDesktopHomeLinks,
+  NavigationDesktopHomeHeader,
+} from "./NavigationDesktopHome";
 export { HomeIcon } from "./HomeIcon";
 export { NavigationIcon } from "./NavigationIcon";
 export { LandingHeadline } from "./LandingHeadline";
@@ -9,7 +19,7 @@ export { LandingLayout } from "./LandingLayout";
 export { LandingWrapper } from "./LandingWrapper";
 export { LayoutWithNavigation } from "./LayoutWithNavigation";
 export { MainLinkButton } from "./MainLinkButton";
-export { NavigationMobile, NavigationMobileHeader } from "./NavigationMobile";
+export { NavigationMobileHeader } from "./NavigationMobile";
 export {
   Navigation,
   NavigationPageList,

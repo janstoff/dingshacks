@@ -3,7 +3,9 @@ export interface Page {
   readonly href: string;
 }
 
-export const pages = [
+export const CONTACT_EMAIL_ADDRESS = "jan.steinhoff@gmail.com";
+
+export const PAGES = [
   { name: "home", href: "/" },
   { name: "story", href: "/story" },
   { name: "results", href: "/results" },

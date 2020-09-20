@@ -7,9 +7,12 @@ import Start from "./Start";
 import * as serviceWorker from "./serviceWorker";
 import { theme, styled } from "./utils/theme";
 import { ShackPage } from "./ShackPage";
-import { pages } from "./utils/config";
+import { PAGES } from "./utils/config";
 import WithMainNavigation from "./WithMainNavigation";
 import { Results } from "./Results";
+import { Contact } from "./Contact";
+import { Story } from "./Story";
+import { AddShack } from "./AddShack";
 
 const StyledAppWrapper = styled.div`
   color: ${(props) => props.theme.colors.colorTertiary};
@@ -39,12 +42,27 @@ ReactDOM.render(
               <Start />
             </Route>
             <Route exact path="/results">
-              <WithMainNavigation pages={pages}>
+              <WithMainNavigation pages={PAGES}>
                 <Results />
               </WithMainNavigation>
             </Route>
+            <Route exact path="/contact">
+              <WithMainNavigation pages={PAGES}>
+                <Contact />
+              </WithMainNavigation>
+            </Route>
+            <Route exact path="/story">
+              <WithMainNavigation pages={PAGES}>
+                <Story />
+              </WithMainNavigation>
+            </Route>
+            <Route exact path="/addshack">
+              <WithMainNavigation pages={PAGES}>
+                <AddShack />
+              </WithMainNavigation>
+            </Route>
             <Route path="/:id/:name">
-              <WithMainNavigation pages={pages}>
+              <WithMainNavigation pages={PAGES}>
                 <ShackPage />
               </WithMainNavigation>
             </Route>

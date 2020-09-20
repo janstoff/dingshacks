@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 
 interface NavigationAddShackButtonProps {
   readonly href: string;
+  readonly home?: boolean;
 }
 
-const StyledNavigationAddShackButtonWrapper = styled.div`
+const StyledNavigationAddShackButtonWrapper = styled.div<
+  Pick<NavigationAddShackButtonProps, "home">
+>`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(props) => (props.home ? "row" : "column")};
   align-items: flex-start;
   padding-left: 1.5rem;
   gap: 1rem;
@@ -36,9 +39,10 @@ const StyledNavigationAddShackButtonDescription = styled.p`
 
 export const NavigationAddShackButton: React.FC<NavigationAddShackButtonProps> = ({
   href,
+  home,
   children,
 }) => (
-  <StyledNavigationAddShackButtonWrapper>
+  <StyledNavigationAddShackButtonWrapper home={home}>
     <Link to={href}>
       <StyledNavigationAddShackButton>+</StyledNavigationAddShackButton>
     </Link>

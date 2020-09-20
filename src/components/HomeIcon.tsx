@@ -6,21 +6,17 @@ interface HomeIconProps {
 }
 
 const StyledHomeIcon = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: transparent;
   height: auto;
   width: 100%;
-  z-index: 1;
 `;
 
 const StyledImageWrapper = styled.div`
   display: inline-block;
   text-decoration: none; /* no underline */
   position: absolute;
-  top: 2rem;
-  left: 2.5rem;
+  top: 0;
+  left: 0;
   transition: all 1s;
 
   @media only screen and (max-width: 760px) {

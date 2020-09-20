@@ -19,7 +19,7 @@ const renderResults = (
   results: BaseShackWithDistance[] | "loading" | undefined
 ) => {
   if (!results || results === "loading") {
-    return <div>Loading...</div>;
+    return <div style={{ textAlign: "left" }}>Loading...</div>;
   }
 
   return results.map((result) => {

@@ -5,8 +5,11 @@ interface LandingWrapperProps {
   readonly imageUrl: string;
 }
 
-// TODO: pass imageUrl and gradients via props
 const StyledLandingWrapper = styled.header<LandingWrapperProps>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 95vh;
   background-image: url(${(props) => props.imageUrl});
   background-size: cover;
@@ -15,7 +18,7 @@ const StyledLandingWrapper = styled.header<LandingWrapperProps>`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  position: relative;
+  z-index: -1;
 `;
 
 export const LandingWrapper: React.SFC<LandingWrapperProps> = ({
