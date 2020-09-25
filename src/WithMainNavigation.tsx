@@ -21,16 +21,7 @@ const WithMainNavigation: React.FC<NavigationProps> = ({ pages, children }) => {
     <LayoutWithNavigation>
       <div>
         <BreakpointWrapper max={Breakpoints.b960}>
-          <MobileNavigation>
-            <NavigationPageList>
-              {pages.map((page) => (
-                <NavigationEntry key={page.href} page={page} />
-              ))}
-            </NavigationPageList>
-            <NavigationAddShackButton href="/addshack">
-              Add a shack here
-            </NavigationAddShackButton>
-          </MobileNavigation>
+          <MobileNavigation pages={pages} />
         </BreakpointWrapper>
         <BreakpointWrapper min={Breakpoints.b960}>
           <Navigation icon={<NavigationIcon color="dark" size="desktop" />}>

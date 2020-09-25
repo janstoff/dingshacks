@@ -38,3 +38,14 @@ const StyledShackPageLayout = styled.div`
 export const ShackPageLayout: React.SFC = ({ children }) => {
   return <StyledShackPageLayout>{children}</StyledShackPageLayout>;
 };
+
+const StyledShackPageSectionHeadline = styled.h3`
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const ShackPageSectionHeadline: React.SFC = ({ children }) => {
+  return (
+    <StyledShackPageSectionHeadline>{children}</StyledShackPageSectionHeadline>
+  );
+};

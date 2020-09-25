@@ -1,18 +1,14 @@
 import React from "react";
 import { styled } from "../utils/theme";
+import { ShackPageSectionHeadline } from ".";
 
 interface ShackConstructionsSectionProps {
   readonly headline: string;
-  readonly constructions: React.ReactNode;
+  readonly constructions?: React.ReactNode;
 }
 
 const StyledConstructionsSection = styled.div`
   grid-area: constructions;
-`;
-
-const StyledConstructionsHeadline = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
 `;
 
 const StyledConstructions = styled.div`
@@ -27,12 +23,20 @@ const StyledConstructions = styled.div`
   font-size: 1rem;
 `;
 
+export const ConstructionsWrapper: React.SFC = ({ children }) => (
+  <StyledConstructions>{children}</StyledConstructions>
+);
+
 export const ShackConstructionsSection: React.SFC<ShackConstructionsSectionProps> = ({
   headline,
   constructions,
+  children,
 }) => (
   <StyledConstructionsSection>
-    <StyledConstructionsHeadline>{headline}</StyledConstructionsHeadline>
-    <StyledConstructions>{constructions}</StyledConstructions>
+    <ShackPageSectionHeadline>{headline}</ShackPageSectionHeadline>
+    {constructions && (
+      <ConstructionsWrapper>{constructions}</ConstructionsWrapper>
+    )}
+    {children}
   </StyledConstructionsSection>
 );

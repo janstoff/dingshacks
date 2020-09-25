@@ -5,11 +5,21 @@ import {
   NavigationMobileMenuButton,
   NavigationMobileMenu,
   NavigationMobileMenuCloseButton,
+  NavigationPageList,
+  NavigationAddShackButton,
 } from "./components";
 import { useRouteMatch } from "react-router-dom";
 import { useOnClickOutsideNavigation } from "./hooks/use-on-click-outside-navigation";
+import { NavigationEntry } from "./NavigationEntry";
+import { Page } from "./utils/config";
 
-export const MobileNavigation: React.FC = ({ children }) => {
+interface MobileNavigationProps {
+  readonly pages: Page[];
+}
+
+export const MobileNavigation: React.FC<MobileNavigationProps> = ({
+  pages,
+}) => {
   const [open, setOpen] = React.useState(false);
   const matchHomeRoute = useRouteMatch("/");
   const navigationElementNode = React.useRef<HTMLDivElement>(null);
@@ -41,7 +51,21 @@ export const MobileNavigation: React.FC = ({ children }) => {
             </NavigationMobileMenuCloseButton>
           }
         >
-          {children}
+          <NavigationPageList>
+            {pages.map((page) => (
+              <NavigationEntry
+                key={page.href}
+                page={page}
+                onClick={() => setOpen(false)}
+              />
+            ))}
+          </NavigationPageList>
+          <NavigationAddShackButton
+            href="/addshack"
+            onClick={() => setOpen(false)}
+          >
+            Add a shack here
+          </NavigationAddShackButton>
         </NavigationMobileMenu>
       )}
     </div>

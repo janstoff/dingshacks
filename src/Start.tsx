@@ -4,7 +4,6 @@ import {
   HomeIcon,
   BreakpointWrapper,
   Breakpoints,
-  NavigationPageList,
   NavigationAddShackButton,
   NavigationDesktopHomeLinks,
 } from "./components";
@@ -17,16 +16,7 @@ function Start() {
   return (
     <>
       <BreakpointWrapper max={Breakpoints.b960}>
-        <MobileNavigation>
-          <NavigationPageList>
-            {PAGES.map((page) => (
-              <NavigationEntry key={page.href} page={page} />
-            ))}
-          </NavigationPageList>
-          <NavigationAddShackButton href="/addshack">
-            Add a shack here
-          </NavigationAddShackButton>
-        </MobileNavigation>
+        <MobileNavigation pages={PAGES} />
       </BreakpointWrapper>
       <BreakpointWrapper min={Breakpoints.b960}>
         <NavigationDesktopHomeHeader>

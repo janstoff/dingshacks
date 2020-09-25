@@ -2,11 +2,12 @@ import React from "react";
 import { styled } from "../utils/theme";
 
 interface ShackReviewsSectionProps {
-  readonly headline: string;
-  readonly reviews: React.ReactNode;
+  readonly headline?: string;
+  readonly reviews?: React.ReactNode;
 }
 
 const StyledReviewsSection = styled.div`
+  font-size: 1.2rem;
   grid-area: reviews;
 `;
 
@@ -25,9 +26,11 @@ const StyledReviews = styled.div`
 export const ShackReviewsSection: React.SFC<ShackReviewsSectionProps> = ({
   headline,
   reviews,
+  children,
 }) => (
   <StyledReviewsSection>
-    <StyledReviewsHeadline>{headline}</StyledReviewsHeadline>
-    <StyledReviews>{reviews}</StyledReviews>
+    {headline && <StyledReviewsHeadline>{headline}</StyledReviewsHeadline>}
+    {reviews && <StyledReviews>{reviews}</StyledReviews>}
+    {children}
   </StyledReviewsSection>
 );

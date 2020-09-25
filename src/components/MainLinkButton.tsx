@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export interface MainLinkButtonProps {
   readonly color?: "primary" | "secondary";
   readonly type?: "submit";
-  readonly href: string;
+  readonly href?: string;
 }
 
 const fadeInAnimation = keyframes`
@@ -78,11 +78,15 @@ export const MainLinkButton: React.SFC<MainLinkButtonProps> = ({
   href,
   children,
 }) => {
-  return (
+  return href ? (
     <Link to={href} style={{ textDecoration: "none" }}>
       <StyledMainLinkButton color={color} type={type}>
         {children}
       </StyledMainLinkButton>
     </Link>
+  ) : (
+    <StyledMainLinkButton color={color} type={type}>
+      {children}
+    </StyledMainLinkButton>
   );
 };

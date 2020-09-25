@@ -1,20 +1,34 @@
 import React from "react";
 import { styled } from "../utils/theme";
 
-interface FormInputProps {
-  readonly type: "text" | "name" | "email" | "checkbox" | "number";
+export interface FormInputProps {
+  readonly type:
+    | "text"
+    | "name"
+    | "email"
+    | "checkbox"
+    | "number"
+    | "range"
+    | "url"
+    | "tel";
   readonly name: string;
+  readonly onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readonly required?: boolean;
   readonly placeholder?: string;
+  readonly value?: string | number | undefined;
+  readonly min?: string;
+  readonly max?: string;
 }
 
-interface FormTextInputAreaProps {
+export interface FormTextInputAreaProps {
   readonly name: string;
+  readonly onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   readonly required?: boolean;
   readonly placeholder?: string;
+  readonly value?: string | undefined;
 }
 
-interface FormElementLabelProps {
+export interface FormElementLabelProps {
   readonly htmlFor: string;
 }
 

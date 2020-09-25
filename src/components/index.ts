@@ -49,11 +49,30 @@ export {
   SectionSubHeadline,
   SectionText,
 } from "./Section";
-export { ShackContactSection } from "./ShackContactSection";
-export { ShackConstructionsSection } from "./ShackConstructionsSection";
+export {
+  ShackContactSection,
+  ShackContactSectionWrapper,
+} from "./ShackContactSection";
+export {
+  ConstructionsWrapper,
+  ShackConstructionsSection,
+} from "./ShackConstructionsSection";
+export {
+  ShackNameInput,
+  ShackStandardInput,
+  ShackStandardTextInputArea,
+  ShackConstructionCheckbox,
+} from "./ShackForm";
 export { ShackInstagramSection } from "./ShackInstagramSection";
-export { ShackPageHeader } from "./ShackPageHeader";
-export { ShackPageLayout } from "./ShackPageLayout";
+export {
+  ShackPageHeader,
+  ShackPageHeaderWrapper,
+  ShackNameWrapper,
+  ShackDescriptionWrapper,
+  ShackNameAndReviewWrapper,
+} from "./ShackPageHeader";
+export { ShackPageLayout, ShackPageSectionHeadline } from "./ShackPageLayout";
 export { ShackReview } from "./ShackReview";
 export { ShackReviewsSection } from "./ShackReviewsSection";
+export { Spacer } from "./Spacer";
 export { Table } from "./Table";

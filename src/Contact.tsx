@@ -43,7 +43,7 @@ export const Contact: React.FC = () => {
             <FormElementLabel htmlFor="message">your message</FormElementLabel>
           </FormGroup>
           <FormGroup>
-            <MainLinkButton color="secondary" type="submit" href="/">
+            <MainLinkButton color="secondary" type="submit">
               Send
             </MainLinkButton>
           </FormGroup>

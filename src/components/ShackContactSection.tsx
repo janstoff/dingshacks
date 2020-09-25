@@ -1,33 +1,49 @@
 import React from "react";
 import { styled } from "../utils/theme";
-import { FullShack } from "../types";
+import { ShackPageSectionHeadline } from ".";
 
-interface ShackContactSectionProps {
-  readonly shackData: FullShack;
+interface ShackContactSectionSectionProps {
+  readonly headline?: string;
+  readonly backgroundColor?: string;
 }
 
-const StyledContactSection = styled.div`
+const StyledShackContactSection = styled.div`
   grid-area: contact;
+`;
+
+const StyledContactSectionContent = styled.div<
+  Partial<ShackContactSectionSectionProps>
+>`
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   border-radius: 1rem;
-  background-color: white;
+  background-color: ${(props) => props.backgroundColor};
   padding: 1rem;
   text-align: left;
   font-size: 1.2rem;
 `;
 
-export const ShackContactSection: React.SFC<ShackContactSectionProps> = ({
-  shackData,
+export const ShackContactSectionWrapper: React.SFC<ShackContactSectionSectionProps> = ({
+  headline,
+  backgroundColor,
+  children,
 }) => (
-  <StyledContactSection>
-    <p>{shackData.street}</p>
-    <p>{shackData.city}</p>
-    <p>{shackData.postcode}</p>
-    <p>{shackData.country}</p>
-    <p itemProp="telephone">
-      <a href={`tel:${shackData.phone}`}>{shackData.phone}</a>
-    </p>
-    <p itemProp="email">
-      <a href={`mailto:${shackData.email}`}>{shackData.email}</a>
-    </p>
-  </StyledContactSection>
+  <StyledShackContactSection>
+    {headline && (
+      <ShackPageSectionHeadline>{headline}</ShackPageSectionHeadline>
+    )}
+    <StyledContactSectionContent backgroundColor={backgroundColor}>
+      {children}
+    </StyledContactSectionContent>
+  </StyledShackContactSection>
+);
+
+export const ShackContactSection: React.SFC<ShackContactSectionSectionProps> = ({
+  headline,
+  children,
+}) => (
+  <ShackContactSectionWrapper headline={headline} backgroundColor="white">
+    {children}
+  </ShackContactSectionWrapper>
 );

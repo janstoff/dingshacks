@@ -4,14 +4,50 @@ import {
   PageHeadlinesWrapper,
   PageHeadline,
   PageSubHeadline,
-  FormGroup,
-  FormInput,
   FormElementLabel,
-  FormTextInputArea,
   MainLinkButton,
+  ShackPageLayout,
+  ShackPageHeaderWrapper,
+  ShackNameWrapper,
+  ShackNameInput,
+  ShackContactSectionWrapper,
+  ShackStandardTextInputArea,
+  ShackDescriptionWrapper,
+  ShackNameAndReviewWrapper,
+  ShackInstagramSection,
+  ShackStandardInput,
+  ShackConstructionsSection,
+  ShackReviewsSection,
+  ShackConstructionCheckbox,
+  ConstructionsWrapper,
+  Spacer,
 } from "./components";
+import { useShackForm } from "./hooks/useShackForm";
 
 export const AddShack: React.FC = () => {
+  const { values, handleInputChange, handleTextAreaChange } = useShackForm(
+    {
+      name: "test",
+      description: "test test",
+      street: undefined,
+      postcode: undefined,
+      city: undefined,
+      country: undefined,
+      email: undefined,
+      phone: undefined,
+      instagram: undefined,
+      facebook: undefined,
+      pu: true,
+      pe: undefined,
+      eps: undefined,
+      soft: undefined,
+      carbon: undefined,
+      rating: undefined,
+      review: undefined,
+    },
+    (values) => console.log(values)
+  );
+
   return (
     <PageLayout>
       <PageHeadlinesWrapper>
@@ -21,86 +57,148 @@ export const AddShack: React.FC = () => {
         </PageSubHeadline>
       </PageHeadlinesWrapper>
       <form>
-        <FormGroup>
-          <FormInput
-            type="text"
-            name="name"
-            required
-            placeholder="shack name"
-          />
-        </FormGroup>
-        <FormGroup>
-          <FormInput type="text" name="street" required placeholder="street" />
-          <FormInput
-            type="text"
-            name="postcode"
-            required
-            placeholder="post code"
-          />
+        <ShackPageLayout>
+          <ShackPageHeaderWrapper>
+            <ShackNameAndReviewWrapper>
+              <ShackNameWrapper>
+                <ShackNameInput
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="shack name"
+                  value={values.name}
+                  onChange={handleInputChange}
+                />
+              </ShackNameWrapper>
+            </ShackNameAndReviewWrapper>
+            <ShackDescriptionWrapper>
+              <ShackStandardTextInputArea
+                name="description"
+                placeholder="add a short description [optional]"
+                value={values.description}
+                onChange={handleTextAreaChange}
+              />
+            </ShackDescriptionWrapper>
+          </ShackPageHeaderWrapper>
+          <ShackContactSectionWrapper headline="Contact">
+            <ShackStandardInput
+              type="text"
+              name="street"
+              required
+              placeholder="street"
+              value={values.street}
+              onChange={handleInputChange}
+            />
+            <ShackStandardInput
+              type="text"
+              name="postcode"
+              required
+              placeholder="post code"
+              value={values.postcode}
+              onChange={handleInputChange}
+            />
 
-          <FormInput type="text" name="city" required placeholder="city" />
-          <FormInput
-            type="text"
-            name="country"
-            required
-            placeholder="country"
-          />
-        </FormGroup>
-        <FormGroup>
-          <FormTextInputArea
-            name="description"
-            placeholder="add a short description [optional]"
-          />
-          <FormElementLabel htmlFor="description">
-            add a short description text [optional]
-          </FormElementLabel>
-        </FormGroup>
-        <FormGroup>
-          <FormInput
-            type="text"
-            name="instagram"
-            placeholder="instagram account [optional]"
-          />
-          <FormInput
-            type="text"
-            name="facebook"
-            placeholder="facebook link [optional]"
-          />
-        </FormGroup>
-        <FormGroup>
-          <FormInput type="checkbox" name="pu" />
-          <FormElementLabel htmlFor="pu">pu</FormElementLabel>
-          <FormInput type="checkbox" name="pe" />
-          <FormElementLabel htmlFor="pe">pe</FormElementLabel>
-          <FormInput type="checkbox" name="eps" />
-          <FormElementLabel htmlFor="eps">eps</FormElementLabel>
-          <FormInput type="checkbox" name="soft" />
-          <FormElementLabel htmlFor="soft">soft</FormElementLabel>
-          <FormInput type="checkbox" name="carbon" />
-          <FormElementLabel htmlFor="carbon">carbon</FormElementLabel>
-        </FormGroup>
-        <FormGroup>
-          <FormInput type="checkbox" name="pu" />
-          <FormElementLabel htmlFor="pu">pu</FormElementLabel>
-        </FormGroup>
-        <FormGroup>
-          <FormInput type="number" name="rating"></FormInput>
-          <FormElementLabel htmlFor="rating">Overall rating</FormElementLabel>
-          <FormTextInputArea
-            name="review"
-            required
-            placeholder="Your review comments"
-          />
-          <FormElementLabel htmlFor="review">
-            your review comments
-          </FormElementLabel>
-        </FormGroup>
-        <FormGroup>
-          <MainLinkButton color="secondary" href="/">
-            Save
-          </MainLinkButton>
-        </FormGroup>
+            <ShackStandardInput
+              type="text"
+              name="city"
+              required
+              placeholder="city"
+              value={values.city}
+              onChange={handleInputChange}
+            />
+            <ShackStandardInput
+              type="text"
+              name="country"
+              required
+              placeholder="country"
+              value={values.country}
+              onChange={handleInputChange}
+            />
+            <Spacer height="2rem" />
+            <ShackStandardInput
+              type="email"
+              name="email"
+              required
+              placeholder="email"
+              value={values.email}
+              onChange={handleInputChange}
+            />
+            <ShackStandardInput
+              type="tel"
+              name="phone"
+              required
+              placeholder="phone"
+              value={values.phone}
+              onChange={handleInputChange}
+            />
+          </ShackContactSectionWrapper>
+          <ShackInstagramSection headline="Social">
+            <ShackStandardInput
+              type="text"
+              name="instagram"
+              placeholder="link an instagram account [optional]"
+              value={values.instagram}
+              onChange={handleInputChange}
+            />
+            <ShackStandardInput
+              type="url"
+              name="facebook"
+              placeholder="facebook url [optional]"
+              value={values.facebook}
+              onChange={handleInputChange}
+            />
+          </ShackInstagramSection>
+          <ShackConstructionsSection headline="Constructions">
+            <ConstructionsWrapper>
+              <ShackConstructionCheckbox
+                name="pu"
+                checked={values.pu}
+                onChange={handleInputChange}
+              />
+              <ShackConstructionCheckbox
+                name="pe"
+                checked={values.pe}
+                onChange={handleInputChange}
+              />
+              <ShackConstructionCheckbox
+                name="eps"
+                checked={values.eps}
+                onChange={handleInputChange}
+              />
+              <ShackConstructionCheckbox
+                name="soft"
+                checked={values.soft}
+                onChange={handleInputChange}
+              />
+              <ShackConstructionCheckbox
+                name="carbon"
+                checked={values.carbon}
+                onChange={handleInputChange}
+              />
+            </ConstructionsWrapper>
+          </ShackConstructionsSection>
+          <ShackReviewsSection headline="Review">
+            <FormElementLabel htmlFor="rating">Overall rating</FormElementLabel>
+            <input
+              type="range"
+              name="rating"
+              min="1"
+              max="10"
+              value={values.rating}
+              onChange={handleInputChange}
+            />
+            <ShackStandardTextInputArea
+              name="review"
+              placeholder="add your review comments here"
+              value={values.review}
+              onChange={handleTextAreaChange}
+            />
+          </ShackReviewsSection>
+        </ShackPageLayout>
       </form>
+      <MainLinkButton color="secondary" type="submit">
+        Save
+      </MainLinkButton>
     </PageLayout>
   );
 };

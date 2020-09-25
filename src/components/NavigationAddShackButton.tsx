@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 interface NavigationAddShackButtonProps {
   readonly href: string;
   readonly home?: boolean;
+  readonly onClick?: () => void;
 }
 
 const StyledNavigationAddShackButtonWrapper = styled.div<
@@ -40,14 +41,21 @@ const StyledNavigationAddShackButtonDescription = styled.p`
 export const NavigationAddShackButton: React.FC<NavigationAddShackButtonProps> = ({
   href,
   home,
+  onClick,
   children,
-}) => (
-  <StyledNavigationAddShackButtonWrapper home={home}>
-    <Link to={href}>
-      <StyledNavigationAddShackButton>+</StyledNavigationAddShackButton>
-    </Link>
-    <StyledNavigationAddShackButtonDescription>
-      {children}
-    </StyledNavigationAddShackButtonDescription>
-  </StyledNavigationAddShackButtonWrapper>
-);
+}) => {
+  const handleClick = () => {
+    onClick && onClick();
+  };
+
+  return (
+    <StyledNavigationAddShackButtonWrapper home={home}>
+      <Link to={href} onClick={() => handleClick()}>
+        <StyledNavigationAddShackButton>+</StyledNavigationAddShackButton>
+      </Link>
+      <StyledNavigationAddShackButtonDescription>
+        {children}
+      </StyledNavigationAddShackButtonDescription>
+    </StyledNavigationAddShackButtonWrapper>
+  );
+};

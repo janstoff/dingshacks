@@ -52,8 +52,21 @@ export const ShackPage: React.SFC = () => {
           averageRating={averageRating}
           numberOfReviews={numberOfReviews}
         />
-        <ShackContactSection shackData={shackData} />
-        <ShackInstagramSection>Instagramm</ShackInstagramSection>
+        <ShackContactSection>
+          <p>{shackData.street}</p>
+          <p>{shackData.city}</p>
+          <p>{shackData.postcode}</p>
+          <p>{shackData.country}</p>
+          <p itemProp="telephone">
+            <a href={`tel:${shackData.phone}`}>{shackData.phone}</a>
+          </p>
+          <p itemProp="email">
+            <a href={`mailto:${shackData.email}`}>{shackData.email}</a>
+          </p>
+        </ShackContactSection>
+        <ShackInstagramSection backgroundColor="white">
+          Instagramm
+        </ShackInstagramSection>
         {constructions && (
           <ShackConstructionsSection
             headline="Constructions"
