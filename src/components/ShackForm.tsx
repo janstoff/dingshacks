@@ -160,6 +160,105 @@ const StyledConstructionsCheckboxLabel = styled.label<
   border: ${(props) => (props.checked ? "1px solid white" : "1px dotted grey")};
 `;
 
+const StyledVisibleCheckbox = styled.div`
+  align-items: center;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-shrink: 0;
+  height: 1.5rem;
+  justify-content: center;
+  position: absolute;
+  right: -0.7rem;
+  scale: 1;
+  top: -0.4rem;
+  width: 1.5rem;
+
+  &:before {
+    box-sizing: content-box;
+    border-radius: 50%;
+    border: 0.4rem solid white;
+    content: "";
+    height: 1.5rem;
+    position: absolute;
+    top: -6px;
+    width: 1.5rem;
+  }
+`;
+
+const StyledCheckMark = styled.div<Partial<ShackConstructionCheckboxProps>>`
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+
+  &::before {
+    position: absolute;
+    left: -0.8rem;
+    top: 50%;
+    height: 50%;
+    width: 0.1rem;
+    background-color: ${(props) => {
+      if (props.checked) {
+        if (props.name === "pu") {
+          return props.theme.colors.colorConstructionPu;
+        }
+        if (props.name === "pe") {
+          return props.theme.colors.colorConstructionPe;
+        }
+        if (props.name === "eps") {
+          return props.theme.colors.colorConstructionEps;
+        }
+        if (props.name === "soft") {
+          return props.theme.colors.colorConstructionSoft;
+        }
+        if (props.name === "carbon") {
+          return props.theme.colors.colorConstructionCarbon;
+        }
+        return props.theme.colors.colorBackgroundPrimary;
+      } else {
+        return props.theme.colors.colorBackgroundPrimary;
+      }
+    }};
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+  }
+
+  &::after {
+    position: absolute;
+    left: -0.8rem;
+    bottom: 0;
+    height: 0.1rem;
+    width: 100%;
+    background-color: ${(props) => {
+      if (props.checked) {
+        if (props.name === "pu") {
+          return props.theme.colors.colorConstructionPu;
+        }
+        if (props.name === "pe") {
+          return props.theme.colors.colorConstructionPe;
+        }
+        if (props.name === "eps") {
+          return props.theme.colors.colorConstructionEps;
+        }
+        if (props.name === "soft") {
+          return props.theme.colors.colorConstructionSoft;
+        }
+        if (props.name === "carbon") {
+          return props.theme.colors.colorConstructionCarbon;
+        }
+        return props.theme.colors.colorBackgroundPrimary;
+      } else {
+        return props.theme.colors.colorBackgroundPrimary;
+      }
+    }};
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+  }
+`;
+
 const StyledConstructionsCheckboxInput = styled.input`
   position: absolute;
   opacity: 0;
@@ -191,6 +290,11 @@ export const ShackConstructionCheckbox: React.SFC<ShackConstructionCheckboxProps
         required={required}
         onChange={(event) => handleChange(event)}
       />
+      {checked && (
+        <StyledVisibleCheckbox>
+          <StyledCheckMark name={name} checked={checked} />
+        </StyledVisibleCheckbox>
+      )}
     </StyledConstructionsCheckboxLabel>
   );
 };
