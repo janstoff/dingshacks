@@ -288,7 +288,7 @@ export const ShackConstructionCheckbox: React.SFC<ShackConstructionCheckboxProps
         name={name}
         checked={checked}
         required={required}
-        onChange={(event) => handleChange(event)}
+        onChange={handleChange}
       />
       {checked && (
         <StyledVisibleCheckbox>
@@ -318,7 +318,7 @@ export const ShackNameInput: React.FC<FormInputProps> = ({
       required={required}
       placeholder={placeholder}
       value={value}
-      onChange={(event) => handleChange(event)}
+      onChange={handleChange}
     />
   );
 };
@@ -340,7 +340,7 @@ export const ShackStandardInput: React.FC<FormInputProps> = ({
       type={type}
       required={required}
       placeholder={placeholder}
-      onChange={(event) => handleChange(event)}
+      onChange={handleChange}
     />
   );
 };
@@ -362,7 +362,7 @@ export const ShackStandardTextInputArea: React.FC<FormTextInputAreaProps> = ({
       required={required}
       placeholder={placeholder}
       value={value}
-      onChange={(event) => handleChange(event)}
+      onChange={handleChange}
     />
   );
 };
