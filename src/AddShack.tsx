@@ -22,31 +22,86 @@ import {
   ConstructionsWrapper,
   Spacer,
 } from "./components";
-import { useShackForm } from "./hooks/useShackForm";
+
+interface ShackFormValues {
+  readonly name: string;
+  readonly description: string;
+  readonly street: string;
+  readonly postcode: string;
+  readonly city: string;
+  readonly country: string;
+  readonly email: string;
+  readonly phone: string;
+  readonly instagram: string;
+  readonly facebook: string;
+  readonly pu: boolean;
+  readonly pe: boolean;
+  readonly eps: boolean;
+  readonly soft: boolean;
+  readonly carbon: boolean;
+  readonly rating: string;
+  readonly review: string;
+}
+
+interface FormAction {
+  readonly field: string;
+  readonly value: string | boolean | number | undefined;
+}
+
+const initialState: ShackFormValues = {
+  name: "",
+  description: "",
+  street: "",
+  postcode: "",
+  city: "",
+  country: "",
+  email: "",
+  phone: "",
+  instagram: "",
+  facebook: "",
+  pu: true,
+  pe: false,
+  eps: false,
+  soft: false,
+  carbon: false,
+  rating: "",
+  review: "",
+};
+
+function shackFormReducer(
+  state: ShackFormValues,
+  action: FormAction
+): ShackFormValues {
+  const { field, value } = action;
+  return { ...state, [field]: value };
+}
 
 export const AddShack: React.FC = () => {
-  const { values, handleInputChange, handleTextAreaChange } = useShackForm(
-    {
-      name: "test",
-      description: "test test",
-      street: undefined,
-      postcode: undefined,
-      city: undefined,
-      country: undefined,
-      email: undefined,
-      phone: undefined,
-      instagram: undefined,
-      facebook: undefined,
-      pu: true,
-      pe: undefined,
-      eps: undefined,
-      soft: undefined,
-      carbon: undefined,
-      rating: undefined,
-      review: undefined,
-    },
-    (values) => console.log(values)
-  );
+  const [state, dispatch] = React.useReducer(shackFormReducer, initialState);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { target } = event;
+    const name = target.name;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+
+    event.persist();
+    dispatch({ field: name, value });
+  };
+
+  const handleTextAreaChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    const { target } = event;
+    const { name, value } = target;
+
+    event.persist();
+    dispatch({ field: name, value });
+  };
+
+  const handleSubmit = (event: any) => {
+    if (event) event.preventDefault();
+    console.log("values:", state);
+  };
 
   return (
     <PageLayout>
@@ -56,7 +111,7 @@ export const AddShack: React.FC = () => {
           Register your own shack or a shack you know of here, Thanks!
         </PageSubHeadline>
       </PageHeadlinesWrapper>
-      <form>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <ShackPageLayout>
           <ShackPageHeaderWrapper>
             <ShackNameAndReviewWrapper>
@@ -66,7 +121,7 @@ export const AddShack: React.FC = () => {
                   name="name"
                   required
                   placeholder="shack name"
-                  value={values.name}
+                  value={state.name}
                   onChange={handleInputChange}
                 />
               </ShackNameWrapper>
@@ -75,7 +130,7 @@ export const AddShack: React.FC = () => {
               <ShackStandardTextInputArea
                 name="description"
                 placeholder="add a short description [optional]"
-                value={values.description}
+                value={state.description}
                 onChange={handleTextAreaChange}
               />
             </ShackDescriptionWrapper>
@@ -86,7 +141,7 @@ export const AddShack: React.FC = () => {
               name="street"
               required
               placeholder="street"
-              value={values.street}
+              value={state.street}
               onChange={handleInputChange}
             />
             <ShackStandardInput
@@ -94,7 +149,7 @@ export const AddShack: React.FC = () => {
               name="postcode"
               required
               placeholder="post code"
-              value={values.postcode}
+              value={state.postcode}
               onChange={handleInputChange}
             />
 
@@ -103,7 +158,7 @@ export const AddShack: React.FC = () => {
               name="city"
               required
               placeholder="city"
-              value={values.city}
+              value={state.city}
               onChange={handleInputChange}
             />
             <ShackStandardInput
@@ -111,7 +166,7 @@ export const AddShack: React.FC = () => {
               name="country"
               required
               placeholder="country"
-              value={values.country}
+              value={state.country}
               onChange={handleInputChange}
             />
             <Spacer height="2rem" />
@@ -120,7 +175,7 @@ export const AddShack: React.FC = () => {
               name="email"
               required
               placeholder="email"
-              value={values.email}
+              value={state.email}
               onChange={handleInputChange}
             />
             <ShackStandardInput
@@ -128,7 +183,7 @@ export const AddShack: React.FC = () => {
               name="phone"
               required
               placeholder="phone"
-              value={values.phone}
+              value={state.phone}
               onChange={handleInputChange}
             />
           </ShackContactSectionWrapper>
@@ -137,14 +192,14 @@ export const AddShack: React.FC = () => {
               type="text"
               name="instagram"
               placeholder="link an instagram account [optional]"
-              value={values.instagram}
+              value={state.instagram}
               onChange={handleInputChange}
             />
             <ShackStandardInput
               type="url"
               name="facebook"
               placeholder="facebook url [optional]"
-              value={values.facebook}
+              value={state.facebook}
               onChange={handleInputChange}
             />
           </ShackInstagramSection>
@@ -152,27 +207,27 @@ export const AddShack: React.FC = () => {
             <ConstructionsWrapper>
               <ShackConstructionCheckbox
                 name="pu"
-                checked={values.pu}
+                checked={state.pu}
                 onChange={handleInputChange}
               />
               <ShackConstructionCheckbox
                 name="pe"
-                checked={values.pe}
+                checked={state.pe}
                 onChange={handleInputChange}
               />
               <ShackConstructionCheckbox
                 name="eps"
-                checked={values.eps}
+                checked={state.eps}
                 onChange={handleInputChange}
               />
               <ShackConstructionCheckbox
                 name="soft"
-                checked={values.soft}
+                checked={state.soft}
                 onChange={handleInputChange}
               />
               <ShackConstructionCheckbox
                 name="carbon"
-                checked={values.carbon}
+                checked={state.carbon}
                 onChange={handleInputChange}
               />
             </ConstructionsWrapper>
@@ -184,21 +239,21 @@ export const AddShack: React.FC = () => {
               name="rating"
               min="1"
               max="10"
-              value={values.rating}
+              value={state.rating}
               onChange={handleInputChange}
             />
             <ShackStandardTextInputArea
               name="review"
               placeholder="add your review comments here"
-              value={values.review}
+              value={state.review}
               onChange={handleTextAreaChange}
             />
           </ShackReviewsSection>
         </ShackPageLayout>
+        <MainLinkButton color="secondary" type="submit">
+          Save
+        </MainLinkButton>
       </form>
-      <MainLinkButton color="secondary" type="submit">
-        Save
-      </MainLinkButton>
     </PageLayout>
   );
 };
