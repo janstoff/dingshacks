@@ -21,6 +21,8 @@ import {
   ShackConstructionCheckbox,
   ConstructionsWrapper,
   Spacer,
+  ShackFormRatingSlider,
+  ShackFormRatingSliderWrapper,
 } from "./components";
 
 interface ShackFormValues {
@@ -234,13 +236,17 @@ export const AddShack: React.FC = () => {
           </ShackConstructionsSection>
           <ShackReviewsSection headline="Review">
             <FormElementLabel htmlFor="rating">Overall rating</FormElementLabel>
-            <input
-              type="range"
-              name="rating"
-              min="1"
-              max="10"
+            <ShackFormRatingSliderWrapper
+              slider={
+                <ShackFormRatingSlider
+                  name="rating"
+                  min="0"
+                  max="10"
+                  value={state.rating}
+                  onChange={handleInputChange}
+                />
+              }
               value={state.rating}
-              onChange={handleInputChange}
             />
             <ShackStandardTextInputArea
               name="review"

@@ -65,7 +65,7 @@ export const ShackPage: React.SFC = () => {
           </p>
         </ShackContactSection>
         <ShackInstagramSection backgroundColor="white">
-          Instagramm
+          Instagram
         </ShackInstagramSection>
         {constructions && (
           <ShackConstructionsSection

@@ -8,7 +8,6 @@ export interface FormInputProps {
     | "email"
     | "checkbox"
     | "number"
-    | "range"
     | "url"
     | "tel";
   readonly name: string;
@@ -16,8 +15,6 @@ export interface FormInputProps {
   readonly required?: boolean;
   readonly placeholder?: string;
   readonly value?: string | number | undefined;
-  readonly min?: string;
-  readonly max?: string;
 }
 
 export interface FormTextInputAreaProps {

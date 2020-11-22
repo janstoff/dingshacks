@@ -13,12 +13,7 @@
       "latitude": 38.1582965,
       "longitude": -9.1581335
     },
-    "constructions": {
-      "pu": true,
-      "pe": true,
-      "soft": true,
-      "carbon": true
-    },
+    "constructions": ["pu", "pe", "eps", "carbon"],
     "paymentMethods": ["cash", "creditcard", "debitcard", "paypal"],
     "shaper": false,
     "currency": "EUR",

@@ -73,6 +73,10 @@ export {
 } from "./ShackPageHeader";
 export { ShackPageLayout, ShackPageSectionHeadline } from "./ShackPageLayout";
 export { ShackReview } from "./ShackReview";
-export { ShackReviewsSection } from "./ShackReviewsSection";
+export {
+  ShackReviewsSection,
+  ShackFormRatingSlider,
+  ShackFormRatingSliderWrapper,
+} from "./ShackReviewsSection";
 export { Spacer } from "./Spacer";
 export { Table } from "./Table";
