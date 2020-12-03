@@ -14,9 +14,11 @@ export const Landing: React.FC = () => {
   );
 
   React.useEffect(() => {
-    setTimeout(() => {
+    const downButtonTimeout = setTimeout(() => {
       setDownButtonInitialized(true);
     }, 5000);
+
+    return clearTimeout(downButtonTimeout);
   }, []);
 
   const hideDownButton = useHideDownButton();
