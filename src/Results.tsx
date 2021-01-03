@@ -10,13 +10,10 @@ import {
 import { BaseShackWithDistance, SearchResultsResponse } from "./types";
 import { createRankedClosestShacks } from "./utils/create-ranked-closest-shacks";
 import { createReviewsLabel } from "./utils/create-reviews-label";
-import { CoordinatesInputForm } from "./CoordinatesInputForm";
+import { useStore } from "./state-provider/store";
 
-const renderResults = (
-  results: BaseShackWithDistance[] | undefined,
-  fetchingLocation: boolean
-) => {
-  if (fetchingLocation) {
+const renderResults = (results: BaseShackWithDistance[] | undefined) => {
+  if (!results) {
     return <div style={{ textAlign: "left" }}>Loading...</div>;
   }
 
@@ -32,47 +29,23 @@ const renderResults = (
 };
 
 export const Results: React.FC = React.memo(() => {
-  const [location, setLocation] = React.useState();
-  const [fetchingLocation, setFetchingLocation] = React.useState(true);
-  const [results, setResults] = React.useState();
+  const store = useStore();
 
   React.useEffect(() => {
-    if (!navigator.geolocation) {
-      console.warn("No navigator.geolocation available.");
-    }
-
-    if (!location) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          console.log("position: ", position);
-
-          setFetchingLocation(false);
-          setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-        },
-
-        (error) => {
-          setFetchingLocation(false);
-          console.log("Error getting device location", error);
-        }
-      );
-    }
-  }, [location]);
-
-  React.useEffect(() => {
-    if (location) {
+    if (store && store?.state.location && !store.state.searchResults.length) {
       // Mocked fetch of shacks
       const {
         shacks,
       }: SearchResultsResponse = require("./mocks/backend-reponses/search-results.json");
 
-      const newResults = createRankedClosestShacks(shacks, location);
+      const newResults = createRankedClosestShacks(
+        shacks,
+        store.state.location
+      );
 
-      setResults(newResults);
+      store.dispatch({ type: "SET_SEARCH_RESULTS", payload: newResults });
     }
-  }, [location]);
+  }, [store]);
 
   return (
     <PageLayout>
@@ -82,8 +55,7 @@ export const Results: React.FC = React.memo(() => {
           Repair Shacks In Order Of Distance To Your Location
         </PageSubHeadline>
       </PageHeadlinesWrapper>
-      {!location && !fetchingLocation && <CoordinatesInputForm />}
-      {renderResults(results, fetchingLocation)}
+      {renderResults(store?.state.searchResults)}
     </PageLayout>
   );
 });
