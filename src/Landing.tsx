@@ -1,28 +1,12 @@
 import React from "react";
 import {
   LandingHeadline,
-  MainLinkButton,
-  DownButton,
   LandingLayout,
   LandingWrapper,
+  MainLinkButton,
 } from "./components";
-import { useHideDownButton } from "./hooks/use-hide-down-button";
 
 export const Landing: React.FC = () => {
-  const [downButtonInitialized, setDownButtonInitialized] = React.useState(
-    false
-  );
-
-  React.useEffect(() => {
-    const downButtonTimeout = setTimeout(() => {
-      setDownButtonInitialized(true);
-    }, 5000);
-
-    return clearTimeout(downButtonTimeout);
-  }, []);
-
-  const hideDownButton = useHideDownButton();
-
   return (
     <LandingWrapper imageUrl={require("./assets/landing.png")}>
       <LandingLayout>
@@ -30,11 +14,8 @@ export const Landing: React.FC = () => {
           primaryHeadline="dinged board?"
           secondaryHeadline="find the best repair near you"
         />
-        <MainLinkButton href="/results">Locate</MainLinkButton>
+        <MainLinkButton href="/results">Search</MainLinkButton>
       </LandingLayout>
-      {downButtonInitialized && !hideDownButton && (
-        <DownButton anchor="anchor" />
-      )}
     </LandingWrapper>
   );
 };

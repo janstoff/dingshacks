@@ -1,10 +1,14 @@
-import { Shack, Coordinates, BaseShackWithDistance, BaseShack } from "../types";
+import {
+  Shack,
+  LocationCoordinates,
+  BaseShackWithDistance,
+  BaseShack,
+} from "../types";
 import { getDistanceBetweenCoordinates } from "./get-distance-between-coordinates";
 
 export function createRankedClosestShacks(
   shacksSearchResults: BaseShack[],
-  userLocation: Coordinates,
-  maxNumberOfResults: number
+  userLocation: LocationCoordinates
 ): BaseShackWithDistance[] {
   return shacksSearchResults
     .map((shack: Shack) => {
@@ -17,6 +21,5 @@ export function createRankedClosestShacks(
         ),
       };
     })
-    .sort((a, b) => (a.distance > b.distance ? 1 : -1))
-    .slice(0, maxNumberOfResults);
+    .sort((a, b) => (a.distance > b.distance ? 1 : -1));
 }

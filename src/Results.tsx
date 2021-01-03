@@ -7,22 +7,20 @@ import {
   PageSubHeadline,
   PageHeadlinesWrapper,
 } from "./components";
-import {
-  Coordinates,
-  BaseShackWithDistance,
-  SearchResultsResponse,
-} from "./types";
+import { BaseShackWithDistance, SearchResultsResponse } from "./types";
 import { createRankedClosestShacks } from "./utils/create-ranked-closest-shacks";
 import { createReviewsLabel } from "./utils/create-reviews-label";
+import { CoordinatesInputForm } from "./CoordinatesInputForm";
 
 const renderResults = (
-  results: BaseShackWithDistance[] | "loading" | undefined
+  results: BaseShackWithDistance[] | undefined,
+  fetchingLocation: boolean
 ) => {
-  if (!results || results === "loading") {
+  if (fetchingLocation) {
     return <div style={{ textAlign: "left" }}>Loading...</div>;
   }
 
-  return results.map((result) => {
+  return results?.map((result) => {
     const reviewsLabel = createReviewsLabel(result);
 
     return (
@@ -33,49 +31,48 @@ const renderResults = (
   });
 };
 
-export const Results: React.FC = () => {
-  const [userLocation, setUserLocation] = React.useState<
-    Coordinates | "error" | undefined
-  >();
-
-  const [results, setResults] = React.useState<
-    BaseShackWithDistance[] | "loading" | undefined
-  >();
+export const Results: React.FC = React.memo(() => {
+  const [location, setLocation] = React.useState();
+  const [fetchingLocation, setFetchingLocation] = React.useState(true);
+  const [results, setResults] = React.useState();
 
   React.useEffect(() => {
-    setResults("loading");
-
-    // TODO: find final browser location fetching setup / fix React State memory leak
-    navigator.geolocation.getCurrentPosition((position) =>
-      setUserLocation({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      })
-    );
-
-    // TODO: replace with actual fetch, i.e. once user locates, fetch the basic data most relevant shacks
-    const {
-      shacks,
-    }: SearchResultsResponse = require("./mocks/backend-reponses/search-results.json");
-    if (!userLocation) {
-      setResults(undefined);
-      return;
+    if (!navigator.geolocation) {
+      console.warn("No navigator.geolocation available.");
     }
 
-    if (userLocation === "error") {
-      return;
+    if (!location) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log("position: ", position);
+
+          setFetchingLocation(false);
+          setLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+
+        (error) => {
+          setFetchingLocation(false);
+          console.log("Error getting device location", error);
+        }
+      );
     }
+  }, [location]);
 
-    const newResults = createRankedClosestShacks(shacks, userLocation, 10);
+  React.useEffect(() => {
+    if (location) {
+      // Mocked fetch of shacks
+      const {
+        shacks,
+      }: SearchResultsResponse = require("./mocks/backend-reponses/search-results.json");
 
-    if (newResults) {
+      const newResults = createRankedClosestShacks(shacks, location);
+
       setResults(newResults);
     }
-  }, [userLocation]);
-
-  if (userLocation === "error") {
-    return <div>Error getting browser location.</div>;
-  }
+  }, [location]);
 
   return (
     <PageLayout>
@@ -85,7 +82,8 @@ export const Results: React.FC = () => {
           Repair Shacks In Order Of Distance To Your Location
         </PageSubHeadline>
       </PageHeadlinesWrapper>
-      {renderResults(results)}
+      {!location && !fetchingLocation && <CoordinatesInputForm />}
+      {renderResults(results, fetchingLocation)}
     </PageLayout>
   );
-};
+});

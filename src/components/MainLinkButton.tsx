@@ -6,6 +6,7 @@ export interface MainLinkButtonProps {
   readonly color?: "primary" | "secondary";
   readonly type?: "submit";
   readonly href?: string;
+  readonly onClick?: () => void;
 }
 
 const fadeInAnimation = keyframes`
@@ -76,16 +77,21 @@ export const MainLinkButton: React.SFC<MainLinkButtonProps> = ({
   color,
   type,
   href,
+  onClick,
   children,
 }) => {
+  const handleClick = () => {
+    onClick && onClick();
+  };
+
   return href ? (
     <Link to={href} style={{ textDecoration: "none" }}>
-      <StyledMainLinkButton color={color} type={type}>
+      <StyledMainLinkButton onClick={handleClick} color={color} type={type}>
         {children}
       </StyledMainLinkButton>
     </Link>
   ) : (
-    <StyledMainLinkButton color={color} type={type}>
+    <StyledMainLinkButton onClick={handleClick} color={color} type={type}>
       {children}
     </StyledMainLinkButton>
   );

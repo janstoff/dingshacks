@@ -1,6 +1,6 @@
 // Front End Data Structures
 
-export interface Coordinates {
+export interface LocationCoordinates {
   readonly latitude: number;
   readonly longitude: number;
 }
@@ -15,7 +15,7 @@ export interface Review {
 export interface BaseShack {
   readonly id: string;
   readonly name: string;
-  readonly coordinates: Coordinates;
+  readonly coordinates: LocationCoordinates;
   readonly constructions?: Construction[];
   readonly verified?: boolean;
   readonly numberOfReviews?: number;
@@ -30,7 +30,7 @@ export interface Shack extends BaseShack {
   readonly street?: string;
   readonly postcode?: string;
   readonly city?: string;
-  readonly coordinates: Coordinates;
+  readonly coordinates: LocationCoordinates;
   readonly country?: string;
   readonly phone?: string;
   readonly email?: string;

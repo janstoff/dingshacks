@@ -1,8 +1,8 @@
-import { Coordinates } from "../types";
+import { LocationCoordinates } from "../types";
 
 export function getDistanceBetweenCoordinates(
-  position1: Coordinates,
-  position2: Coordinates,
+  position1: LocationCoordinates,
+  position2: LocationCoordinates,
   inKilometers: boolean
 ): number {
   if (

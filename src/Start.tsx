@@ -12,7 +12,7 @@ import { MobileNavigation } from "./MobileNavigation";
 import { PAGES } from "./utils/config";
 import { NavigationEntry } from "./NavigationEntry";
 
-function Start() {
+export const Start: React.FC = () => {
   return (
     <>
       <BreakpointWrapper max={Breakpoints.b960}>
@@ -34,6 +34,6 @@ function Start() {
       <Landing />
     </>
   );
-}
+};
 
 export default Start;
