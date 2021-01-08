@@ -1,14 +1,11 @@
 import React from "react";
-import {
-  LandingHeadline,
-  MainLinkButton,
-  LandingLayout,
-  LandingWrapper,
-} from "./components";
+
 import { CoordinatesInputForm } from "./CoordinatesInputForm";
+
+import { MainLinkButton } from "./components";
 import { useStore } from "./state-provider/store";
 
-export const Landing: React.FC = () => {
+export const LocationSelection: React.FC = () => {
   const store = useStore();
 
   React.useEffect(() => {
@@ -41,26 +38,17 @@ export const Landing: React.FC = () => {
     }
   }, [store]);
 
-  console.log("location:", store?.state.location);
+  const logUnMount = () => console.log("### unmounting LocationSelection");
+  React.useEffect(() => logUnMount);
 
   return (
-    <LandingWrapper imageUrl={require("./assets/landing.png")}>
-      <LandingLayout>
-        <LandingHeadline
-          primaryHeadline="dinged board?"
-          secondaryHeadline="find the best repair near you"
-        />
-        <>
-          {!store?.state.location && <CoordinatesInputForm />}
-          {store?.state.location && (
-            <MainLinkButton href="/results">
-              Search Based on Your Location
-            </MainLinkButton>
-          )}
-        </>
-      </LandingLayout>
-    </LandingWrapper>
+    <>
+      {!store?.state.location && <CoordinatesInputForm />}
+      {store?.state.location && (
+        <MainLinkButton href="/results">
+          Search Based on Your Location
+        </MainLinkButton>
+      )}
+    </>
   );
 };
-
-export default Landing;

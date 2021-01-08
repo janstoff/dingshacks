@@ -21,9 +21,8 @@ const StyledLandingWrapper = styled.header<LandingWrapperProps>`
   z-index: -1;
 `;
 
-export const LandingWrapper: React.SFC<LandingWrapperProps> = ({
-  children,
-  imageUrl,
-}) => (
-  <StyledLandingWrapper imageUrl={imageUrl}>{children}</StyledLandingWrapper>
+export const LandingWrapper: React.SFC<LandingWrapperProps> = React.memo(
+  ({ children, imageUrl }) => (
+    <StyledLandingWrapper imageUrl={imageUrl}>{children}</StyledLandingWrapper>
+  )
 );

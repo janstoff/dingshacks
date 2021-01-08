@@ -20,9 +20,8 @@ const fadeInAnimation = keyframes`
 
 const StyledMainLinkButton = styled.button<Pick<MainLinkButtonProps, "color">>`
   border: none;
-  width: 12rem;
+  width: 20rem;
   padding: 1rem 3rem;
-  font: inherit;
   font-size: 1.5rem;
   cursor: pointer;
   outline: inherit;
@@ -67,9 +66,9 @@ const StyledMainLinkButton = styled.button<Pick<MainLinkButtonProps, "color">>`
   }
 
   @media only screen and (min-width: 560px) {
-    width: 20rem;
+    width: 40rem;
     padding: 1.5rem 4rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `;
 

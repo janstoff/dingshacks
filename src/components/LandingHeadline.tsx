@@ -15,7 +15,6 @@ const StyledHeadlineContainer = styled.div`
 const StyledHeadline = styled.h1`
   text-transform: uppercase;
   backface-visibility: hidden; /* prevent animation shaking */
-  margin-bottom: 6rem;
 `;
 
 const moveInLeftAnimation = keyframes`

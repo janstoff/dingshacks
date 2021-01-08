@@ -4,6 +4,7 @@ import { styled } from "../utils/theme";
 const StyledLandingLayout = styled.header`
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   position: absolute;
   top: 50%;

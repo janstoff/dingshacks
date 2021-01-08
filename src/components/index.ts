@@ -7,7 +7,6 @@ export {
   FormElementLabel,
   FormTextInputArea,
 } from "./Contact";
-export { DownButton } from "./DownButton";
 export {
   NavigationDesktopHomeLinks,
   NavigationDesktopHomeHeader,
