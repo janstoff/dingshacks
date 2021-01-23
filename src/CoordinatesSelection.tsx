@@ -1,5 +1,10 @@
 import React from "react";
-import { CoordinatesInput } from "./components/CoordinatesForm";
+import { MainLinkButton } from "./components";
+import {
+  CoordinatesInput,
+  CoordinatesInputForm,
+} from "./components/CoordinatesSelection";
+import { useStore } from "./state-provider/store";
 
 interface CoordinatesValues {
   readonly latitude: number | undefined;
@@ -19,7 +24,9 @@ function coordinatesFormReducer(
   return { ...state, [field]: value };
 }
 
-export const CoordinatesInputForm: React.FC = () => {
+export const CoordinatesSelection: React.FC = () => {
+  const store = useStore();
+
   const [coordinates, dispatch] = React.useReducer(coordinatesFormReducer, {
     latitude: undefined,
     longitude: undefined,
@@ -34,8 +41,28 @@ export const CoordinatesInputForm: React.FC = () => {
     dispatch({ field: name, value: Number(value) });
   };
 
+  const handleSubmitCoordinates = () => {
+    const { latitude, longitude } = coordinates;
+
+    if (!store) {
+      console.log("No store context available yet.");
+    }
+
+    store?.dispatch({
+      type: "SET_SEARCH_RESULTS",
+      payload: [],
+    });
+
+    if (latitude && longitude) {
+      store?.dispatch({
+        type: "SET_LOCATION",
+        payload: { latitude, longitude },
+      });
+    }
+  };
+
   return (
-    <form onSubmit={() => console.log("submit")}>
+    <CoordinatesInputForm>
       <CoordinatesInput
         type="number"
         name="latitude"
@@ -52,7 +79,13 @@ export const CoordinatesInputForm: React.FC = () => {
         onChange={handleInputChange}
         value={coordinates.longitude}
       />
-      <button type="submit">submit</button>
-    </form>
+      <MainLinkButton
+        type="submit"
+        href="/results"
+        onClick={handleSubmitCoordinates}
+      >
+        Go
+      </MainLinkButton>
+    </CoordinatesInputForm>
   );
 };

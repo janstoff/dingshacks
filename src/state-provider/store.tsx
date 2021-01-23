@@ -10,7 +10,7 @@ export type StoreAction = SetLocationAction | SetSearchResultsAction;
 
 interface SetLocationAction {
   type: "SET_LOCATION";
-  payload: LocationCoordinates;
+  payload: LocationCoordinates | null;
 }
 
 interface SetSearchResultsAction {

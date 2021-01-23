@@ -7,13 +7,20 @@ import {
   PageSubHeadline,
   PageHeadlinesWrapper,
 } from "./components";
-import { BaseShackWithDistance, SearchResultsResponse } from "./types";
+import {
+  BaseShackWithDistance,
+  LocationCoordinates,
+  SearchResultsResponse,
+} from "./types";
 import { createRankedClosestShacks } from "./utils/create-ranked-closest-shacks";
 import { createReviewsLabel } from "./utils/create-reviews-label";
 import { useStore } from "./state-provider/store";
 
-const renderResults = (results: BaseShackWithDistance[] | undefined) => {
-  if (!results) {
+const renderResults = (
+  results: BaseShackWithDistance[] | undefined,
+  location: LocationCoordinates | null | undefined
+) => {
+  if (!results || !location) {
     return <div style={{ textAlign: "left" }}>Loading...</div>;
   }
 
@@ -55,7 +62,7 @@ export const Results: React.FC = React.memo(() => {
           Repair Shacks In Order Of Distance To Your Location
         </PageSubHeadline>
       </PageHeadlinesWrapper>
-      {renderResults(store?.state.searchResults)}
+      {renderResults(store?.state.searchResults, store?.state.location)}
     </PageLayout>
   );
 });

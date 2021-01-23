@@ -11,7 +11,7 @@ export interface InputProps {
 }
 
 const StyledCoordinatesInput = styled.input`
-  width: 100%;
+  width: 70%;
   font-size: 1.2rem;
   padding: 1rem 1.5rem;
   border: none;
@@ -60,4 +60,12 @@ export const CoordinatesInput: React.FC<InputProps> = ({
       onChange={handleChange}
     />
   );
+};
+
+const StyledCoordinatesInputForm = styled.form`
+  display: flex;
+`;
+
+export const CoordinatesInputForm: React.FC = ({ children }) => {
+  return <StyledCoordinatesInputForm>{children}</StyledCoordinatesInputForm>;
 };

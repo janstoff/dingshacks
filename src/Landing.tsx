@@ -5,13 +5,13 @@ import {
   LandingLayout,
   LandingWrapper,
 } from "./components";
-import { CoordinatesInputForm } from "./CoordinatesInputForm";
+import { CoordinatesSelection } from "./CoordinatesSelection";
 import { useStore } from "./state-provider/store";
 
 export const Landing: React.FC = () => {
   const store = useStore();
 
-  React.useEffect(() => {
+  const handleUseBrowserLocationClick = () => {
     if (!store) {
       console.log("No store context available yet.");
     }
@@ -20,7 +20,17 @@ export const Landing: React.FC = () => {
       console.warn("No navigator.geolocation available.");
     }
 
-    if (!store?.state.location) {
+    if (navigator.geolocation) {
+      store?.dispatch({
+        type: "SET_LOCATION",
+        payload: null,
+      });
+
+      store?.dispatch({
+        type: "SET_SEARCH_RESULTS",
+        payload: [],
+      });
+
       navigator.geolocation.getCurrentPosition(
         (position) => {
           console.log("position: ", position);
@@ -39,7 +49,7 @@ export const Landing: React.FC = () => {
         }
       );
     }
-  }, [store]);
+  };
 
   console.log("location:", store?.state.location);
 
@@ -51,12 +61,14 @@ export const Landing: React.FC = () => {
           secondaryHeadline="find the best repair near you"
         />
         <>
-          {!store?.state.location && <CoordinatesInputForm />}
-          {store?.state.location && (
-            <MainLinkButton href="/results">
-              Search Based on Your Location
-            </MainLinkButton>
-          )}
+          <MainLinkButton
+            href="/results"
+            onClick={handleUseBrowserLocationClick}
+          >
+            Search Based on Your Location
+          </MainLinkButton>
+          <p style={{ color: "white" }}>or based on coordinates</p>
+          <CoordinatesSelection />
         </>
       </LandingLayout>
     </LandingWrapper>

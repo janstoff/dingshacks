@@ -20,7 +20,6 @@ const fadeInAnimation = keyframes`
 
 const StyledMainLinkButton = styled.button<Pick<MainLinkButtonProps, "color">>`
   border: none;
-  width: 20rem;
   padding: 1rem 3rem;
   font-size: 1.5rem;
   cursor: pointer;
@@ -35,7 +34,7 @@ const StyledMainLinkButton = styled.button<Pick<MainLinkButtonProps, "color">>`
   font-weight: 600;
   border-radius: 10rem;
   transition: all 0.2s;
-  animation: ${fadeInAnimation} 0.5s ease-out 1s;
+  animation: ${fadeInAnimation} 0.2s ease-out 1s;
   animation-fill-mode: backwards; /* apply the 0% animation styling at the start of the animation */
 
   &:hover {
@@ -56,7 +55,7 @@ const StyledMainLinkButton = styled.button<Pick<MainLinkButtonProps, "color">>`
     z-index: -1;
     top: 0;
     left: 0;
-    transition: all 0.4s;
+    transition: all 0.2s;
     animation: fadeIn 1s ease-out 2s;
   }
 
@@ -66,7 +65,6 @@ const StyledMainLinkButton = styled.button<Pick<MainLinkButtonProps, "color">>`
   }
 
   @media only screen and (min-width: 560px) {
-    width: 40rem;
     padding: 1.5rem 4rem;
     font-size: 1.5rem;
   }
