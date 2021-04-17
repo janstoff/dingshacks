@@ -3,6 +3,7 @@ import { MainLinkButton } from "./components";
 import {
   CoordinatesInput,
   CoordinatesInputForm,
+  CoordinatesInputsWrapper,
 } from "./components/CoordinatesSelection";
 import { useStore } from "./state-provider/store";
 
@@ -63,28 +64,30 @@ export const CoordinatesSelection: React.FC = () => {
 
   return (
     <CoordinatesInputForm>
-      <CoordinatesInput
-        type="number"
-        name="latitude"
-        placeholder="latitude"
-        required
-        onChange={handleInputChange}
-        value={coordinates.latitude}
-      />
-      <CoordinatesInput
-        type="number"
-        name="longitude"
-        placeholder="longitude"
-        required
-        onChange={handleInputChange}
-        value={coordinates.longitude}
-      />
+      <CoordinatesInputsWrapper>
+        <CoordinatesInput
+          type="number"
+          name="latitude"
+          placeholder="latitude"
+          required
+          onChange={handleInputChange}
+          value={coordinates.latitude}
+        />
+        <CoordinatesInput
+          type="number"
+          name="longitude"
+          placeholder="longitude"
+          required
+          onChange={handleInputChange}
+          value={coordinates.longitude}
+        />
+      </CoordinatesInputsWrapper>
       <MainLinkButton
         type="submit"
         href="/results"
         onClick={handleSubmitCoordinates}
       >
-        Go
+        go
       </MainLinkButton>
     </CoordinatesInputForm>
   );

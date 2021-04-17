@@ -11,14 +11,12 @@ const StyledShackContactSection = styled.div`
   grid-area: contact;
 `;
 
-const StyledContactSectionContent = styled.div<
-  Partial<ShackContactSectionSectionProps>
->`
+const StyledContactSectionContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
   border-radius: 1rem;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: white;
   padding: 1rem;
   text-align: left;
   font-size: 1.2rem;
@@ -26,16 +24,13 @@ const StyledContactSectionContent = styled.div<
 
 export const ShackContactSectionWrapper: React.SFC<ShackContactSectionSectionProps> = ({
   headline,
-  backgroundColor,
   children,
 }) => (
   <StyledShackContactSection>
     {headline && (
       <ShackPageSectionHeadline>{headline}</ShackPageSectionHeadline>
     )}
-    <StyledContactSectionContent backgroundColor={backgroundColor}>
-      {children}
-    </StyledContactSectionContent>
+    <StyledContactSectionContent>{children}</StyledContactSectionContent>
   </StyledShackContactSection>
 );
 

@@ -4,12 +4,16 @@ import {
   MainLinkButton,
   LandingLayout,
   LandingWrapper,
+  Spacer,
+  PlainLinkButton,
 } from "./components";
+import { LandingCoordinatesSelectionWrapper } from "./components/LandingLayout";
 import { CoordinatesSelection } from "./CoordinatesSelection";
 import { useStore } from "./state-provider/store";
 
 export const Landing: React.FC = () => {
   const store = useStore();
+  const [useCoordinates, openUseCoordinates] = React.useState(false);
 
   const handleUseBrowserLocationClick = () => {
     if (!store) {
@@ -51,25 +55,45 @@ export const Landing: React.FC = () => {
     }
   };
 
+  const handleUseCoordinatesClick = () => {
+    openUseCoordinates(!useCoordinates && true);
+  };
+
   console.log("location:", store?.state.location);
 
   return (
     <LandingWrapper imageUrl={require("./assets/landing.png")}>
       <LandingLayout>
-        <LandingHeadline
-          primaryHeadline="dinged board?"
-          secondaryHeadline="find the best repair near you"
-        />
-        <>
-          <MainLinkButton
-            href="/results"
-            onClick={handleUseBrowserLocationClick}
-          >
-            Search Based on Your Location
-          </MainLinkButton>
-          <p style={{ color: "white" }}>or based on coordinates</p>
-          <CoordinatesSelection />
-        </>
+        <LandingHeadline text="search board repair" />
+        <Spacer height="2rem" />
+        {!useCoordinates ? (
+          <div>
+            <MainLinkButton
+              href="/results"
+              onClick={handleUseBrowserLocationClick}
+            >
+              use device location
+            </MainLinkButton>
+            <Spacer height="2rem" />
+            <PlainLinkButton color="white" onClick={handleUseCoordinatesClick}>
+              or use coordinates
+            </PlainLinkButton>
+          </div>
+        ) : (
+          <>
+            <LandingCoordinatesSelectionWrapper>
+              <CoordinatesSelection />
+            </LandingCoordinatesSelectionWrapper>
+            <Spacer height="2rem" />
+            <PlainLinkButton
+              color="white"
+              href="/results"
+              onClick={handleUseBrowserLocationClick}
+            >
+              or use browser location
+            </PlainLinkButton>
+          </>
+        )}
       </LandingLayout>
     </LandingWrapper>
   );

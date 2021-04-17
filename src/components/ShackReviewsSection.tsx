@@ -17,7 +17,6 @@ const StyledReviewsHeadline = styled.h3`
 `;
 
 const StyledReviews = styled.div`
-  grid-area: reviews;
   border-radius: 1rem;
   background-color: white;
   padding: 1rem;

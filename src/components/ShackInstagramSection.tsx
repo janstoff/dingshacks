@@ -11,17 +11,18 @@ const StyledInstagramSection = styled.div`
   grid-area: instagram;
 `;
 
-const StyledInstagramSectionContent = styled.div<
-  Partial<ShackInstagramSectionProps>
->`
-  border-radius: 1rem;
-  background-color: ${(props) => props.backgroundColor};
+const StyledInstagramSectionContent = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 0.5rem;
+  border-radius: 0.2rem;
   padding: 1rem;
+  background-color: white;
+  border-radius: 1rem;
 `;
 
 export const ShackInstagramSection: React.SFC<ShackInstagramSectionProps> = ({
   headline,
-  backgroundColor,
   children,
 }) => {
   return (
@@ -29,9 +30,7 @@ export const ShackInstagramSection: React.SFC<ShackInstagramSectionProps> = ({
       {headline && (
         <ShackPageSectionHeadline>{headline}</ShackPageSectionHeadline>
       )}
-      <StyledInstagramSectionContent backgroundColor={backgroundColor}>
-        {children}
-      </StyledInstagramSectionContent>
+      <StyledInstagramSectionContent>{children}</StyledInstagramSectionContent>
     </StyledInstagramSection>
   );
 };

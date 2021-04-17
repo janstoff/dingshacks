@@ -9,12 +9,13 @@ interface ShackConstructionsSectionProps {
 
 const StyledConstructionsSection = styled.div`
   grid-area: constructions;
+  align-items: center;
 `;
 
 const StyledConstructions = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 1rem;
   border-radius: 1rem;
   background-color: white;

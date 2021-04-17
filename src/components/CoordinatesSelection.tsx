@@ -62,8 +62,26 @@ export const CoordinatesInput: React.FC<InputProps> = ({
   );
 };
 
+const StyledCoordinatesInputsWrapper = styled.div`
+  display: grid;
+  grid-gap: 3px;
+`;
+
+export const CoordinatesInputsWrapper: React.FC = ({ children }) => {
+  return (
+    <StyledCoordinatesInputsWrapper>{children}</StyledCoordinatesInputsWrapper>
+  );
+};
+
 const StyledCoordinatesInputForm = styled.form`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-row-gap: 4px;
+  align-items: center;
+
+  @media only screen and (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const CoordinatesInputForm: React.FC = ({ children }) => {

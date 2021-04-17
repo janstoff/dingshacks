@@ -10,26 +10,20 @@ const StyledShackPageLayout = styled.div`
   gap: 3rem;
   grid-template-areas:
     "header"
-    "instagram"
-    "reviews"
     "constructions"
-    "contact";
+    "contact"
+    "instagram"
+    "coordinates"
+    "reviews";
 
   @media only screen and (min-width: 560px) {
     padding: 1rem;
     grid-template-areas:
       "header header header header"
-      "instagram instagram instagram instagram"
-      "constructions reviews reviews reviews"
-      "contact reviews reviews reviews";
-  }
-
-  @media only screen and (min-width: 960px) {
-    padding: 2rem;
-    grid-template-areas:
-      "header header header header header"
-      "contact instagram instagram instagram instagram"
-      "constructions reviews reviews reviews reviews";
+      "constructions constructions constructions constructions"
+      "contact contact instagram instagram"
+      "contact contact coordinates coordinates"
+      "reviews reviews reviews reviews";
   }
 `;
 

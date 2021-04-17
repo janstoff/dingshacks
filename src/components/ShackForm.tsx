@@ -18,9 +18,8 @@ const StyledShackNameInput = styled.input`
   font-size: 1.8rem;
   padding: 1.5rem 2rem;
   border: none;
-  background-color: white;
   border-radius: 1rem;
-  border-bottom: 0.1rem solid ${(props) => props.theme.colors.colorTertiary};
+  border-bottom: 0.1rem solid ${(props) => props.theme.colors.grey};
 
   &:hover,
   &:focus {
@@ -49,8 +48,7 @@ const StyledShackStandardInput = styled.input`
   padding: 1rem 1.5rem;
   border: none;
   background-color: white;
-  border-radius: 1rem;
-  border-bottom: 0.1rem solid ${(props) => props.theme.colors.colorTertiary};
+  border-bottom: 0.1rem solid ${(props) => props.theme.colors.greyLight};
 
   &:hover,
   &:focus {
@@ -79,9 +77,8 @@ const StyledShackStandardTextInputArea = styled.textarea`
   font: inherit;
   padding: 1.5rem 2rem;
   border: none;
-  background-color: white;
   border-radius: 1rem;
-  border-bottom: 0.1rem solid ${(props) => props.theme.colors.colorTertiary};
+  border-bottom: 0.1rem solid ${(props) => props.theme.colors.grey};
   height: 15vh;
 
   &:hover,

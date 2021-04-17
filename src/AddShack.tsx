@@ -24,6 +24,7 @@ import {
   ShackFormRatingSlider,
   ShackFormRatingSliderWrapper,
 } from "./components";
+import { ShackCoordinatesSection } from "./components/ShackCoordinatesSection";
 
 interface ShackFormValues {
   readonly name: string;
@@ -43,6 +44,8 @@ interface ShackFormValues {
   readonly carbon: boolean;
   readonly rating: string;
   readonly review: string;
+  readonly latitude: number | undefined;
+  readonly longitude: number | undefined;
 }
 
 interface FormAction {
@@ -68,6 +71,8 @@ const initialState: ShackFormValues = {
   carbon: false,
   rating: "",
   review: "",
+  latitude: undefined,
+  longitude: undefined,
 };
 
 function shackFormReducer(
@@ -110,7 +115,7 @@ export const AddShack: React.FC = () => {
       <PageHeadlinesWrapper>
         <PageHeadline>Add New Shack</PageHeadline>
         <PageSubHeadline>
-          Register your own shack or a shack you know of here, Thanks!
+          Register your own shack or a shack you know of here
         </PageSubHeadline>
       </PageHeadlinesWrapper>
       <form onSubmit={(event) => handleSubmit(event)}>
@@ -255,6 +260,22 @@ export const AddShack: React.FC = () => {
               onChange={handleTextAreaChange}
             />
           </ShackReviewsSection>
+          <ShackCoordinatesSection headline="Coordinates">
+            <ShackStandardInput
+              type="number"
+              name="latitude"
+              placeholder="latitude"
+              value={state.latitude}
+              onChange={handleInputChange}
+            />
+            <ShackStandardInput
+              type="number"
+              name="longitude"
+              placeholder="longitude"
+              value={state.longitude}
+              onChange={handleInputChange}
+            />
+          </ShackCoordinatesSection>
         </ShackPageLayout>
         <MainLinkButton color="secondary" type="submit">
           Save
