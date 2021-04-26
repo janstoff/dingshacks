@@ -1,19 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./index.css";
-import Start from "./Start";
-import * as serviceWorker from "./serviceWorker";
-import { theme, styled } from "./utils/theme";
-import { ShackPage } from "./ShackPage";
-import { PAGES } from "./utils/config";
-import WithMainNavigation from "./WithMainNavigation";
-import { Results } from "./Results";
-import { Contact } from "./Contact";
-import { Story } from "./Story";
 import { AddShack } from "./AddShack";
+import { Contact } from "./Contact";
+import "./index.css";
+import { Results } from "./Results";
+import { ReviewShack } from "./ReviewShack";
+import * as serviceWorker from "./serviceWorker";
+import { ShackPage } from "./ShackPage";
+import Start from "./Start";
 import { StoreProvider } from "./state-provider/store";
+import { Story } from "./Story";
+import { PAGES } from "./utils/config";
+import { styled, theme } from "./utils/theme";
+import WithMainNavigation from "./WithMainNavigation";
 
 const StyledAppWrapper = styled.div`
   color: ${(props) => props.theme.colors.colorTertiary};
@@ -61,6 +62,11 @@ ReactDOM.render(
               <Route exact path="/addshack">
                 <WithMainNavigation pages={PAGES}>
                   <AddShack />
+                </WithMainNavigation>
+              </Route>
+              <Route path="/review/:id">
+                <WithMainNavigation pages={PAGES}>
+                  <ReviewShack />
                 </WithMainNavigation>
               </Route>
               <Route path="/:id/:name">

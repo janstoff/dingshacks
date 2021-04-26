@@ -1,8 +1,10 @@
 import React from "react";
 import { styled } from "../utils/theme";
 import { Rating, ReviewButton } from ".";
+import { Link } from "react-router-dom";
 
 interface ShackPageHeaderProps {
+  readonly shackId: string;
   readonly name: string;
   readonly averageRating?: number;
   readonly numberOfReviews?: number;
@@ -81,7 +83,8 @@ export const ShackDescriptionWrapper: React.FC = ({ children }) => (
   <StyledShackDescription>{children}</StyledShackDescription>
 );
 
-export const ShackPageHeader: React.SFC<ShackPageHeaderProps> = ({
+export const ShackPageHeader: React.FC<ShackPageHeaderProps> = ({
+  shackId,
   name,
   averageRating,
   numberOfReviews,
@@ -97,12 +100,12 @@ export const ShackPageHeader: React.SFC<ShackPageHeaderProps> = ({
             {numberOfReviews === 1 ? "review" : "reviews"}
           </StyledNumberOfReviews>
         )}
-        <ReviewButton
-          onClick={() => console.log("clicked write review button")}
-          href="#write-review"
+        <Link
+          to={`/review/${shackId}`}
+          style={{ textDecoration: "none", color: "inherit" }}
         >
-          write review
-        </ReviewButton>
+          <ReviewButton>write review</ReviewButton>
+        </Link>
       </StyledRatingWrapper>
     </ShackNameAndReviewWrapper>
     <ShackDescriptionWrapper>Description</ShackDescriptionWrapper>

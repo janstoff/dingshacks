@@ -25,7 +25,7 @@ const StyledReviewComment = styled.div`
   text-align: left;
 `;
 
-export const ShackReview: React.SFC<ShackReviewProps> = ({ review }) => (
+export const ShackReview: React.FC<ShackReviewProps> = ({ review }) => (
   <StyledReview key={review.id}>
     <StyledReviewHeader>
       <StyledReviewer>{review.user}</StyledReviewer>
@@ -34,3 +34,19 @@ export const ShackReview: React.SFC<ShackReviewProps> = ({ review }) => (
     <StyledReviewComment>{`"${review.comment}"`}</StyledReviewComment>
   </StyledReview>
 );
+
+const StyledShackReviewPageLayout = styled.div`
+  display: grid;
+  grid-template-areas:
+    "header"
+    "contact"
+    "reviews";
+  padding: 0.2rem;
+  outline: 0.2rem ${(props) => props.theme.colors.grey};
+  background-color: ${(props) => props.theme.colors.colorShackPageBackground};
+  grid-gap: 3rem;
+`;
+
+export const ShackReviewPageLayout: React.FC = ({ children }) => {
+  return <StyledShackReviewPageLayout>{children}</StyledShackReviewPageLayout>;
+};

@@ -72,7 +72,7 @@ export {
   ShackPageHeaderWrapper,
 } from "./ShackPageHeader";
 export { ShackPageLayout, ShackPageSectionHeadline } from "./ShackPageLayout";
-export { ShackReview } from "./ShackReview";
+export { ShackReview, ShackReviewPageLayout } from "./ShackReview";
 export {
   ShackFormRatingSlider,
   ShackFormRatingSliderWrapper,

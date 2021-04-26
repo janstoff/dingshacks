@@ -1,23 +1,28 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { ShackPageLayout } from "./components/ShackPageLayout";
-import { FullShack, ShackResponse } from "./types";
 import {
-  ShackPageHeader,
+  ConstructionLabel,
+  PageHeadline,
+  PageHeadlinesWrapper,
+  PageLayout,
+  PageSubHeadline,
+  ShackConstructionsSection,
   ShackContactSection,
   ShackInstagramSection,
-  ShackConstructionsSection,
-  ConstructionLabel,
-  ShackReviewsSection,
+  ShackPageHeader,
   ShackReview,
-  PageLayout,
-  PageHeadlinesWrapper,
-  PageHeadline,
-  PageSubHeadline,
+  ShackReviewsSection,
 } from "./components";
+import { ShackPageLayout } from "./components/ShackPageLayout";
+import { FullShack, ShackResponse } from "./types";
 
-export const ShackPage: React.SFC = () => {
-  const { id } = useParams();
+interface ShackPageRouterParams {
+  readonly id: string;
+  readonly name: string;
+}
+
+export const ShackPage: React.FC = () => {
+  const { id } = useParams<ShackPageRouterParams>();
   const [shackData, setShackData] = React.useState<FullShack | undefined>();
 
   React.useEffect(() => {
@@ -48,6 +53,7 @@ export const ShackPage: React.SFC = () => {
       </PageHeadlinesWrapper>
       <ShackPageLayout>
         <ShackPageHeader
+          shackId={id}
           name={name}
           averageRating={averageRating}
           numberOfReviews={numberOfReviews}

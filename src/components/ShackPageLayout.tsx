@@ -29,7 +29,7 @@ const StyledShackPageLayout = styled.div`
 
 // highlight verified status
 
-export const ShackPageLayout: React.SFC = ({ children }) => {
+export const ShackPageLayout: React.FC = ({ children }) => {
   return <StyledShackPageLayout>{children}</StyledShackPageLayout>;
 };
 
@@ -38,7 +38,7 @@ const StyledShackPageSectionHeadline = styled.h3`
   margin-bottom: 0.5rem;
 `;
 
-export const ShackPageSectionHeadline: React.SFC = ({ children }) => {
+export const ShackPageSectionHeadline: React.FC = ({ children }) => {
   return (
     <StyledShackPageSectionHeadline>{children}</StyledShackPageSectionHeadline>
   );

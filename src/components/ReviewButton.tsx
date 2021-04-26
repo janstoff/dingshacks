@@ -2,10 +2,6 @@ import React from "react";
 import { styled } from "../utils/theme";
 
 export interface ReviewButtonProps {
-  readonly onClick: (
-    event?: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => void;
-  readonly href: string;
   readonly icon?: JSX.Element;
 }
 
@@ -49,18 +45,6 @@ const StyledReviewButton = styled.button`
   }
 `;
 
-export const ReviewButton: React.SFC<ReviewButtonProps> = ({
-  onClick,
-  children,
-}) => {
-  const handleClick = () => {
-    onClick();
-    console.log("Clicked main link button!");
-  };
-
-  return (
-    <StyledReviewButton onClick={() => handleClick()}>
-      {children}
-    </StyledReviewButton>
-  );
+export const ReviewButton: React.FC<ReviewButtonProps> = ({ children }) => {
+  return <StyledReviewButton>{children}</StyledReviewButton>;
 };

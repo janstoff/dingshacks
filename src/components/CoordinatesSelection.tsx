@@ -65,6 +65,11 @@ export const CoordinatesInput: React.FC<InputProps> = ({
 const StyledCoordinatesInputsWrapper = styled.div`
   display: grid;
   grid-gap: 3px;
+
+  @media only screen and (max-width: 760px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 `;
 
 export const CoordinatesInputsWrapper: React.FC = ({ children }) => {
@@ -81,6 +86,7 @@ const StyledCoordinatesInputForm = styled.form`
 
   @media only screen and (max-width: 760px) {
     grid-template-columns: 1fr;
+    justify-items: center;
   }
 `;
 
